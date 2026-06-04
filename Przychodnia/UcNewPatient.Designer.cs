@@ -30,34 +30,36 @@
         {
             label1 = new Label();
             groupBox1 = new GroupBox();
-            maskedTextBox1 = new MaskedTextBox();
+            maskedTextBoxPesel = new MaskedTextBox();
             label2 = new Label();
-            radioButton2 = new RadioButton();
+            radioButtonMale = new RadioButton();
             label5 = new Label();
             label6 = new Label();
-            radioButton1 = new RadioButton();
+            radioButtonFemale = new RadioButton();
             label4 = new Label();
-            textBox1 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
+            textBoxName = new TextBox();
+            dateTimePicker = new DateTimePicker();
             label3 = new Label();
-            textBox2 = new TextBox();
+            textBoxSurname = new TextBox();
             groupBox3 = new GroupBox();
-            maskedTextBox2 = new MaskedTextBox();
-            textBox5 = new TextBox();
+            maskedTextBoxPhoneNum = new MaskedTextBox();
+            textBoxEmail = new TextBox();
             label8 = new Label();
             label7 = new Label();
             label10 = new Label();
-            textBox6 = new TextBox();
-            textBox8 = new TextBox();
+            textBoxStreet = new TextBox();
+            textBoxCity = new TextBox();
             label11 = new Label();
-            textBox7 = new TextBox();
+            textBoxHouseNum = new TextBox();
             label12 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnCancel = new Button();
+            btnConfirm = new Button();
             monthCalendar1 = new MonthCalendar();
             groupBox2 = new GroupBox();
+            label13 = new Label();
+            comboBoxDoctor = new ComboBox();
             label9 = new Label();
-            comboBox1 = new ComboBox();
+            comboBoxHours = new ComboBox();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -76,17 +78,17 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(maskedTextBox1);
+            groupBox1.Controls.Add(maskedTextBoxPesel);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(radioButton2);
+            groupBox1.Controls.Add(radioButtonMale);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(radioButton1);
+            groupBox1.Controls.Add(radioButtonFemale);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(dateTimePicker1);
+            groupBox1.Controls.Add(textBoxName);
+            groupBox1.Controls.Add(dateTimePicker);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(textBoxSurname);
             groupBox1.Location = new Point(20, 56);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(311, 194);
@@ -94,13 +96,13 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Dane podstawowe";
             // 
-            // maskedTextBox1
+            // maskedTextBoxPesel
             // 
-            maskedTextBox1.Location = new Point(24, 97);
-            maskedTextBox1.Mask = "00000000000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(125, 27);
-            maskedTextBox1.TabIndex = 10;
+            maskedTextBoxPesel.Location = new Point(24, 97);
+            maskedTextBoxPesel.Mask = "00000000000";
+            maskedTextBoxPesel.Name = "maskedTextBoxPesel";
+            maskedTextBoxPesel.Size = new Size(125, 27);
+            maskedTextBoxPesel.TabIndex = 10;
             // 
             // label2
             // 
@@ -111,16 +113,16 @@
             label2.TabIndex = 2;
             label2.Text = "Imię";
             // 
-            // radioButton2
+            // radioButtonMale
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(113, 152);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(102, 24);
-            radioButton2.TabIndex = 9;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Mężczyzna";
-            radioButton2.UseVisualStyleBackColor = true;
+            radioButtonMale.AutoSize = true;
+            radioButtonMale.Location = new Point(113, 152);
+            radioButtonMale.Name = "radioButtonMale";
+            radioButtonMale.Size = new Size(102, 24);
+            radioButtonMale.TabIndex = 9;
+            radioButtonMale.TabStop = true;
+            radioButtonMale.Text = "Mężczyzna";
+            radioButtonMale.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -140,16 +142,16 @@
             label6.TabIndex = 6;
             label6.Text = "Płeć";
             // 
-            // radioButton1
+            // radioButtonFemale
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(28, 152);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(82, 24);
-            radioButton1.TabIndex = 2;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Kobieta";
-            radioButton1.UseVisualStyleBackColor = true;
+            radioButtonFemale.AutoSize = true;
+            radioButtonFemale.Location = new Point(28, 152);
+            radioButtonFemale.Name = "radioButtonFemale";
+            radioButtonFemale.Size = new Size(82, 24);
+            radioButtonFemale.TabIndex = 2;
+            radioButtonFemale.TabStop = true;
+            radioButtonFemale.Text = "Kobieta";
+            radioButtonFemale.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -160,20 +162,21 @@
             label4.TabIndex = 4;
             label4.Text = "PESEL";
             // 
-            // textBox1
+            // textBoxName
             // 
-            textBox1.Location = new Point(24, 46);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(113, 27);
-            textBox1.TabIndex = 2;
+            textBoxName.Location = new Point(24, 46);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(113, 27);
+            textBoxName.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(155, 97);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(143, 27);
-            dateTimePicker1.TabIndex = 2;
+            dateTimePicker.Format = DateTimePickerFormat.Short;
+            dateTimePicker.Location = new Point(155, 97);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new Size(143, 27);
+            dateTimePicker.TabIndex = 2;
+            dateTimePicker.Value = new DateTime(2026, 6, 1, 0, 0, 0, 0);
             // 
             // label3
             // 
@@ -184,25 +187,25 @@
             label3.TabIndex = 3;
             label3.Text = "Nazwisko";
             // 
-            // textBox2
+            // textBoxSurname
             // 
-            textBox2.Location = new Point(143, 46);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(143, 27);
-            textBox2.TabIndex = 7;
+            textBoxSurname.Location = new Point(143, 46);
+            textBoxSurname.Name = "textBoxSurname";
+            textBoxSurname.Size = new Size(143, 27);
+            textBoxSurname.TabIndex = 7;
             // 
             // groupBox3
             // 
             groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox3.Controls.Add(maskedTextBox2);
-            groupBox3.Controls.Add(textBox5);
+            groupBox3.Controls.Add(maskedTextBoxPhoneNum);
+            groupBox3.Controls.Add(textBoxEmail);
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(label7);
             groupBox3.Controls.Add(label10);
-            groupBox3.Controls.Add(textBox6);
-            groupBox3.Controls.Add(textBox8);
+            groupBox3.Controls.Add(textBoxStreet);
+            groupBox3.Controls.Add(textBoxCity);
             groupBox3.Controls.Add(label11);
-            groupBox3.Controls.Add(textBox7);
+            groupBox3.Controls.Add(textBoxHouseNum);
             groupBox3.Controls.Add(label12);
             groupBox3.Location = new Point(20, 256);
             groupBox3.Name = "groupBox3";
@@ -211,20 +214,20 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Dane kontaktowe";
             // 
-            // maskedTextBox2
+            // maskedTextBoxPhoneNum
             // 
-            maskedTextBox2.Location = new Point(24, 46);
-            maskedTextBox2.Mask = "000-000-000";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(125, 27);
-            maskedTextBox2.TabIndex = 22;
+            maskedTextBoxPhoneNum.Location = new Point(24, 46);
+            maskedTextBoxPhoneNum.Mask = "000-000-000";
+            maskedTextBoxPhoneNum.Name = "maskedTextBoxPhoneNum";
+            maskedTextBoxPhoneNum.Size = new Size(125, 27);
+            maskedTextBoxPhoneNum.TabIndex = 22;
             // 
-            // textBox5
+            // textBoxEmail
             // 
-            textBox5.Location = new Point(157, 46);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(143, 27);
-            textBox5.TabIndex = 12;
+            textBoxEmail.Location = new Point(157, 46);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(143, 27);
+            textBoxEmail.TabIndex = 12;
             // 
             // label8
             // 
@@ -253,19 +256,19 @@
             label10.TabIndex = 15;
             label10.Text = "Ulica";
             // 
-            // textBox6
+            // textBoxStreet
             // 
-            textBox6.Location = new Point(24, 99);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(143, 27);
-            textBox6.TabIndex = 14;
+            textBoxStreet.Location = new Point(24, 99);
+            textBoxStreet.Name = "textBoxStreet";
+            textBoxStreet.Size = new Size(143, 27);
+            textBoxStreet.TabIndex = 14;
             // 
-            // textBox8
+            // textBoxCity
             // 
-            textBox8.Location = new Point(24, 152);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(143, 27);
-            textBox8.TabIndex = 19;
+            textBoxCity.Location = new Point(24, 152);
+            textBoxCity.Name = "textBoxCity";
+            textBoxCity.Size = new Size(143, 27);
+            textBoxCity.TabIndex = 19;
             // 
             // label11
             // 
@@ -276,12 +279,12 @@
             label11.TabIndex = 16;
             label11.Text = "Nr domu";
             // 
-            // textBox7
+            // textBoxHouseNum
             // 
-            textBox7.Location = new Point(173, 99);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(65, 27);
-            textBox7.TabIndex = 17;
+            textBoxHouseNum.Location = new Point(173, 99);
+            textBoxHouseNum.Name = "textBoxHouseNum";
+            textBoxHouseNum.Size = new Size(65, 27);
+            textBoxHouseNum.TabIndex = 17;
             // 
             // label12
             // 
@@ -292,37 +295,42 @@
             label12.TabIndex = 18;
             label12.Text = "Miejscowość";
             // 
-            // button1
+            // btnCancel
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.Location = new Point(366, 413);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 3;
-            button1.Text = "Anuluj";
-            button1.UseVisualStyleBackColor = true;
+            btnCancel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnCancel.Location = new Point(366, 413);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(94, 29);
+            btnCancel.TabIndex = 3;
+            btnCancel.Text = "Anuluj";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
-            // button2
+            // btnConfirm
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button2.Location = new Point(477, 413);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 4;
-            button2.Text = "Zatwierdź";
-            button2.UseVisualStyleBackColor = true;
+            btnConfirm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnConfirm.Location = new Point(477, 413);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(94, 29);
+            btnConfirm.TabIndex = 4;
+            btnConfirm.Text = "Zatwierdź";
+            btnConfirm.UseVisualStyleBackColor = true;
+            btnConfirm.Click += btnConfirm_Click;
             // 
             // monthCalendar1
             // 
             monthCalendar1.Location = new Point(12, 21);
+            monthCalendar1.MaxSelectionCount = 1;
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 12;
             // 
             // groupBox2
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(label13);
+            groupBox2.Controls.Add(comboBoxDoctor);
             groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(comboBoxHours);
             groupBox2.Controls.Add(monthCalendar1);
             groupBox2.Location = new Point(337, 56);
             groupBox2.Name = "groupBox2";
@@ -330,6 +338,24 @@
             groupBox2.TabIndex = 13;
             groupBox2.TabStop = false;
             groupBox2.Text = "Data wizyty";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(12, 291);
+            label13.Name = "label13";
+            label13.Size = new Size(51, 20);
+            label13.TabIndex = 16;
+            label13.Text = "Lekarz";
+            // 
+            // comboBoxDoctor
+            // 
+            comboBoxDoctor.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxDoctor.FormattingEnabled = true;
+            comboBoxDoctor.Location = new Point(12, 314);
+            comboBoxDoctor.Name = "comboBoxDoctor";
+            comboBoxDoctor.Size = new Size(151, 28);
+            comboBoxDoctor.TabIndex = 15;
             // 
             // label9
             // 
@@ -340,22 +366,22 @@
             label9.TabIndex = 14;
             label9.Text = "Godzina";
             // 
-            // comboBox1
+            // comboBoxHours
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 260);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 13;
+            comboBoxHours.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxHours.FormattingEnabled = true;
+            comboBoxHours.Location = new Point(12, 260);
+            comboBoxHours.Name = "comboBoxHours";
+            comboBoxHours.Size = new Size(151, 28);
+            comboBoxHours.TabIndex = 13;
             // 
             // UcNewPatient
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(groupBox2);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnConfirm);
+            Controls.Add(btnCancel);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(label1);
@@ -379,29 +405,31 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private RadioButton radioButtonMale;
+        private RadioButton radioButtonFemale;
+        private DateTimePicker dateTimePicker;
+        private TextBox textBoxSurname;
+        private TextBox textBoxName;
         private Label label6;
         private GroupBox groupBox3;
         private Label label7;
-        private TextBox textBox8;
+        private TextBox textBoxCity;
         private Label label12;
-        private TextBox textBox7;
+        private TextBox textBoxHouseNum;
         private Label label11;
         private Label label10;
-        private TextBox textBox6;
-        private TextBox textBox5;
+        private TextBox textBoxStreet;
+        private TextBox textBoxEmail;
         private Label label8;
-        private Button button1;
-        private Button button2;
-        private MaskedTextBox maskedTextBox1;
-        private MaskedTextBox maskedTextBox2;
+        private Button btnCancel;
+        private Button btnConfirm;
+        private MaskedTextBox maskedTextBoxPesel;
+        private MaskedTextBox maskedTextBoxPhoneNum;
         private MonthCalendar monthCalendar1;
         private GroupBox groupBox2;
         private Label label9;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxHours;
+        private Label label13;
+        private ComboBox comboBoxDoctor;
     }
 }
