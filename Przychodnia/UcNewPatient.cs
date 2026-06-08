@@ -6,7 +6,7 @@ namespace Przychodnia
     public partial class UcNewPatient : UserControl
     {
         // Zmienna przechowująca edytowanego pacjenta
-        private Patient edytowanyPacjent = null;
+        private Patient currentPatient = null;
 
         public UcNewPatient()
         {
@@ -15,7 +15,7 @@ namespace Przychodnia
 
         public void WczytajDoEdycji(Patient p)
         {
-            edytowanyPacjent = p;
+            currentPatient = p;
 
             textBoxName.Text = p.Name;
             textBoxSurname.Text = p.Surname;
@@ -61,7 +61,7 @@ namespace Przychodnia
             if (comboBoxDoctor.Items.Count > 0) comboBoxDoctor.SelectedIndex = 0;
 
             // Reset trybu edycji
-            edytowanyPacjent = null;
+            currentPatient = null;
             label1.Text = "Nowy Pacjent";
             btnConfirm.Text = "Zatwierdź";
         }
@@ -79,8 +79,8 @@ namespace Przychodnia
             }
 
             Patient p;
-            if (edytowanyPacjent != null)
-                p = edytowanyPacjent;
+            if (currentPatient != null)
+                p = currentPatient;
             else
                 p = new Patient();
 
@@ -99,7 +99,7 @@ namespace Przychodnia
             p.HourVisit = comboBoxHours.Text;
             p.Doctor = comboBoxDoctor.Text;
 
-            if (edytowanyPacjent == null)
+            if (currentPatient == null)
             {
                 Database.patientList.Add(p);
             }

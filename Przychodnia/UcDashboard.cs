@@ -11,44 +11,61 @@ namespace Przychodnia
             InitializeComponent();
             timer1.Start();
 
-            this.VisibleChanged += UcDashboard_VisibleChanged;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             labelTime.Text = System.DateTime.Now.ToString();
+            RefreshStats();
+
         }
 
-        private void UcDashboard_VisibleChanged(object sender, EventArgs e)
+        private void RefreshStats()
         {
-            if (this.Visible)
+            DateTime today = DateTime.Today;
+            int numOfNextWeekVisits = 0;
+
+            for (int i = 0; i<7; i++)
             {
-                OdswiezStatystyki();
-            }
-        }
+                DateTime nextWeek = today.AddDays(i);
 
-        private void OdswiezStatystyki()
-        {
-            DateTime dzisiaj = DateTime.Today;
-
-            var dzisiejszeWizyty = Database.patientList
-                .Where(p => p.DateVisit.Date == dzisiaj)
+                var nextWeekVisits = Database.patientList
+                .Where(p => p.DateVisit.Date == nextWeek)
                 .ToList();
 
-            labelNumOfPatients.Text = dzisiejszeWizyty.Count.ToString();
-            labelNumOfNewPatients.Text = Database.patientList.Count.ToString();
+                numOfNextWeekVisits += nextWeekVisits.Count; 
+            }
 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = dzisiejszeWizyty;
+            var todayVisits = Database.patientList
+                .Where(p => p.DateVisit.Date == today)
+                .ToList();
 
-            // Zabezpieczenie na wypadek braku przypisanych kolumn na panelu głównym
-            if (dataGridView1.Columns["PhoneNumber"] != null) dataGridView1.Columns["PhoneNumber"].Visible = false;
-            if (dataGridView1.Columns["Email"] != null) dataGridView1.Columns["Email"].Visible = false;
-            if (dataGridView1.Columns["Street"] != null) dataGridView1.Columns["Street"].Visible = false;
-            if (dataGridView1.Columns["City"] != null) dataGridView1.Columns["City"].Visible = false;
-            if (dataGridView1.Columns["HouseNumber"] != null) dataGridView1.Columns["HouseNumber"].Visible = false;
-            if (dataGridView1.Columns["Sex"] != null) dataGridView1.Columns["Sex"].Visible = false;
-            if (dataGridView1.Columns["Date"] != null) dataGridView1.Columns["Date"].Visible = false;
+
+            labelNumOfPatients.Text = todayVisits.Count.ToString();
+            labelNumOfNewPatients.Text = numOfNextWeekVisits.ToString();
+
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = new System.ComponentModel.BindingList<Patient>(todayVisits);
+
+            string[] hiddenColumns = { "PhoneNumber", "Email", "Street", "City", "HouseNumber", "Sex", "Date" };
+            foreach (string nazwa in hiddenColumns)
+            {
+                if (dataGridView1.Columns[nazwa] != null)
+                    dataGridView1.Columns[nazwa].Visible = false;
+            }
+
+            if (dataGridView1.Columns["Name"] != null) dataGridView1.Columns["Name"].HeaderText = "Imię";
+            if (dataGridView1.Columns["Surname"] != null) dataGridView1.Columns["Surname"].HeaderText = "Nazwisko";
+            if (dataGridView1.Columns["Pesel"] != null) dataGridView1.Columns["Pesel"].HeaderText = "PESEL";
+            if (dataGridView1.Columns["DateVisit"] != null)
+            {
+                dataGridView1.Columns["DateVisit"].HeaderText = "Data Wizyty";
+                dataGridView1.Columns["DateVisit"].DefaultCellStyle.Format = "g"; // Pokazuje datę i godzinę
+            }
+            if (dataGridView1.Columns["HourVisit"] != null) dataGridView1.Columns["HourVisit"].HeaderText = "Godzina";
+            if (dataGridView1.Columns["Doctor"] != null) dataGridView1.Columns["Doctor"].HeaderText = "Lekarz";
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }

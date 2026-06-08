@@ -12,17 +12,17 @@ namespace Przychodnia
         {
             InitializeComponent();
 
-            // Mapowanie kolumn z projektanta
             dataGridView1.AutoGenerateColumns = false;
 
             if (dataGridView1.Columns["name"] != null) dataGridView1.Columns["name"].DataPropertyName = "Name";
             if (dataGridView1.Columns["surname"] != null) dataGridView1.Columns["surname"].DataPropertyName = "Surname";
             if (dataGridView1.Columns["pesel"] != null) dataGridView1.Columns["pesel"].DataPropertyName = "Pesel";
             if (dataGridView1.Columns["telNumber"] != null) dataGridView1.Columns["telNumber"].DataPropertyName = "PhoneNumber";
-            if (dataGridView1.Columns["lastVisit"] != null)
+
+            if (dataGridView1.Columns["nextVisit"] != null)
             {
-                dataGridView1.Columns["lastVisit"].DataPropertyName = "DateVisit";
-                dataGridView1.Columns["lastVisit"].DefaultCellStyle.Format = "g"; // Ładny format daty
+                dataGridView1.Columns["nextVisit"].DataPropertyName = "DateVisit";
+                dataGridView1.Columns["nextVisit"].DefaultCellStyle.Format = "g";
             }
             if (dataGridView1.Columns["ID"] != null) dataGridView1.Columns["ID"].Visible = false;
 
