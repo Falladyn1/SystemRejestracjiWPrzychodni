@@ -31,15 +31,15 @@
             textBoxSearch = new TextBox();
             btnSearch = new Button();
             dataGridView1 = new DataGridView();
-            btnEdit = new Button();
-            btnDelete = new Button();
-            btnAdd = new Button();
             ID = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
             surname = new DataGridViewTextBoxColumn();
             pesel = new DataGridViewTextBoxColumn();
             telNumber = new DataGridViewTextBoxColumn();
             nextVisit = new DataGridViewTextBoxColumn();
+            btnEditPatient = new Button();
+            btnScheduleVisit = new Button();
+            btnDeletePatient = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -76,36 +76,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(667, 324);
             dataGridView1.TabIndex = 2;
-            // 
-            // btnEdit
-            // 
-            btnEdit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEdit.Location = new Point(283, 410);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(120, 30);
-            btnEdit.TabIndex = 3;
-            btnEdit.Text = "Edytuj Pacjenta";
-            btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnDelete.Location = new Point(566, 410);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(120, 30);
-            btnDelete.TabIndex = 4;
-            btnDelete.Text = "Umów Wizyte";
-            btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAdd.Location = new Point(424, 410);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(120, 30);
-            btnAdd.TabIndex = 5;
-            btnAdd.Text = "Usuń Pacjenta";
-            btnAdd.UseVisualStyleBackColor = true;
             // 
             // ID
             // 
@@ -149,13 +119,45 @@
             nextVisit.Name = "nextVisit";
             nextVisit.ReadOnly = true;
             // 
+            // btnEditPatient
+            // 
+            btnEditPatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEditPatient.Location = new Point(283, 410);
+            btnEditPatient.Name = "btnEditPatient";
+            btnEditPatient.Size = new Size(120, 30);
+            btnEditPatient.TabIndex = 3;
+            btnEditPatient.Text = "Edytuj Pacjenta";
+            btnEditPatient.UseVisualStyleBackColor = true;
+            btnEditPatient.Click += btnEditPatient_Click;
+            // 
+            // btnScheduleVisit
+            // 
+            btnScheduleVisit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnScheduleVisit.Location = new Point(566, 410);
+            btnScheduleVisit.Name = "btnScheduleVisit";
+            btnScheduleVisit.Size = new Size(120, 30);
+            btnScheduleVisit.TabIndex = 4;
+            btnScheduleVisit.Text = "Umów Wizyte";
+            btnScheduleVisit.UseVisualStyleBackColor = true;
+            // 
+            // btnDeletePatient
+            // 
+            btnDeletePatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDeletePatient.Location = new Point(424, 410);
+            btnDeletePatient.Name = "btnDeletePatient";
+            btnDeletePatient.Size = new Size(120, 30);
+            btnDeletePatient.TabIndex = 5;
+            btnDeletePatient.Text = "Usuń Pacjenta";
+            btnDeletePatient.UseVisualStyleBackColor = true;
+            btnDeletePatient.Click += btnDeletePatient_Click;
+            // 
             // UcPatientList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(btnAdd);
-            Controls.Add(btnDelete);
-            Controls.Add(btnEdit);
+            Controls.Add(btnDeletePatient);
+            Controls.Add(btnScheduleVisit);
+            Controls.Add(btnEditPatient);
             Controls.Add(dataGridView1);
             Controls.Add(btnSearch);
             Controls.Add(textBoxSearch);
@@ -171,9 +173,9 @@
         private TextBox textBoxSearch;
         private Button btnSearch;
         private DataGridView dataGridView1;
-        private Button btnEdit;
-        private Button btnDelete;
-        private Button btnAdd;
+        private Button btnEditPatient;
+        private Button btnScheduleVisit;
+        private Button btnDeletePatient;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn surname;

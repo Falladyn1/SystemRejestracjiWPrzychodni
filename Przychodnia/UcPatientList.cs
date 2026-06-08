@@ -1,14 +1,8 @@
-﻿using Microsoft.Win32.SafeHandles;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Przychodnia
 {
@@ -18,17 +12,19 @@ namespace Przychodnia
         {
             InitializeComponent();
 
+            // Mapowanie kolumn z projektanta
             dataGridView1.AutoGenerateColumns = false;
 
-            dataGridView1.Columns["name"].DataPropertyName = "Name";
-            dataGridView1.Columns["surname"].DataPropertyName = "Surname";
-            dataGridView1.Columns["pesel"].DataPropertyName = "Pesel";
-            dataGridView1.Columns["telNumber"].DataPropertyName = "PhoneNumber";
-
-            dataGridView1.Columns["nextVisit"].DataPropertyName = "DateVisit";
-            dataGridView1.Columns["nextVisit"].DefaultCellStyle.Format = "g"; 
-
-            dataGridView1.Columns["ID"].Visible = false;
+            if (dataGridView1.Columns["name"] != null) dataGridView1.Columns["name"].DataPropertyName = "Name";
+            if (dataGridView1.Columns["surname"] != null) dataGridView1.Columns["surname"].DataPropertyName = "Surname";
+            if (dataGridView1.Columns["pesel"] != null) dataGridView1.Columns["pesel"].DataPropertyName = "Pesel";
+            if (dataGridView1.Columns["telNumber"] != null) dataGridView1.Columns["telNumber"].DataPropertyName = "PhoneNumber";
+            if (dataGridView1.Columns["lastVisit"] != null)
+            {
+                dataGridView1.Columns["lastVisit"].DataPropertyName = "DateVisit";
+                dataGridView1.Columns["lastVisit"].DefaultCellStyle.Format = "g"; // Ładny format daty
+            }
+            if (dataGridView1.Columns["ID"] != null) dataGridView1.Columns["ID"].Visible = false;
 
             dataGridView1.DataSource = Database.patientList;
         }
@@ -44,10 +40,54 @@ namespace Przychodnia
             else
             {
                 var filteredList = Database.patientList.Where(p =>
-                (p.Pesel != null && p.Pesel.ToLower().Contains(phrase)) ||
-                (p.Surname != null && p.Surname.ToLower().Contains(phrase))).ToList();
+                    (p.Pesel != null && p.Pesel.ToLower().Contains(phrase)) ||
+                    (p.Surname != null && p.Surname.ToLower().Contains(phrase))
+                ).ToList();
 
                 dataGridView1.DataSource = new BindingList<Patient>(filteredList);
+            }
+        }
+
+        private void btnDeletePatient_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć pacjenta?", "Usuwanie", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
+
+                    Database.patientList.Remove(selectedPatient);
+                    Database.Save();
+
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = Database.patientList;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wybierz pacjenta z listy (zaznacz cały wiersz).");
+            }
+        }
+
+        private void btnEditPatient_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
+
+                UcNewPatient editView = new UcNewPatient();
+                editView.WczytajDoEdycji(selectedPatient);
+
+                Panel mainPanel = (Panel)this.Parent;
+                mainPanel.Controls.Clear();
+                editView.Dock = DockStyle.Fill;
+                mainPanel.Controls.Add(editView);
+            }
+            else
+            {
+                MessageBox.Show("Najpierw zaznacz cały wiersz pacjenta z listy!");
             }
         }
     }
