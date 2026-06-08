@@ -28,7 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            groupBox3 = new GroupBox();
+            maskedTextBoxPhoneNum = new MaskedTextBox();
+            textBoxEmail = new TextBox();
+            label8 = new Label();
+            label7 = new Label();
+            label10 = new Label();
+            textBoxStreet = new TextBox();
+            textBoxCity = new TextBox();
+            label11 = new Label();
+            textBoxHouseNum = new TextBox();
+            label12 = new Label();
             groupBox1 = new GroupBox();
             maskedTextBoxPesel = new MaskedTextBox();
             label2 = new Label();
@@ -41,43 +51,122 @@
             dateTimePicker = new DateTimePicker();
             label3 = new Label();
             textBoxSurname = new TextBox();
-            groupBox3 = new GroupBox();
-            maskedTextBoxPhoneNum = new MaskedTextBox();
-            textBoxEmail = new TextBox();
-            label8 = new Label();
-            label7 = new Label();
-            label10 = new Label();
-            textBoxStreet = new TextBox();
-            textBoxCity = new TextBox();
-            label11 = new Label();
-            textBoxHouseNum = new TextBox();
-            label12 = new Label();
-            btnCancel = new Button();
-            btnConfirm = new Button();
-            monthCalendar1 = new MonthCalendar();
             groupBox2 = new GroupBox();
             label13 = new Label();
             comboBoxDoctor = new ComboBox();
             label9 = new Label();
             comboBoxHours = new ComboBox();
-            groupBox1.SuspendLayout();
+            monthCalendar1 = new MonthCalendar();
+            btnCancel = new Button();
+            btnConfirm = new Button();
+            label1 = new Label();
             groupBox3.SuspendLayout();
+            groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // groupBox3
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label1.Location = new Point(22, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(196, 38);
-            label1.TabIndex = 0;
-            label1.Text = "Nowy Pacjent";
+            groupBox3.Controls.Add(maskedTextBoxPhoneNum);
+            groupBox3.Controls.Add(textBoxEmail);
+            groupBox3.Controls.Add(label8);
+            groupBox3.Controls.Add(label7);
+            groupBox3.Controls.Add(label10);
+            groupBox3.Controls.Add(textBoxStreet);
+            groupBox3.Controls.Add(textBoxCity);
+            groupBox3.Controls.Add(label11);
+            groupBox3.Controls.Add(textBoxHouseNum);
+            groupBox3.Controls.Add(label12);
+            groupBox3.Location = new Point(3, 254);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(311, 186);
+            groupBox3.TabIndex = 2;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Dane kontaktowe";
+            // 
+            // maskedTextBoxPhoneNum
+            // 
+            maskedTextBoxPhoneNum.Location = new Point(24, 46);
+            maskedTextBoxPhoneNum.Mask = "000-000-000";
+            maskedTextBoxPhoneNum.Name = "maskedTextBoxPhoneNum";
+            maskedTextBoxPhoneNum.Size = new Size(125, 27);
+            maskedTextBoxPhoneNum.TabIndex = 22;
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Location = new Point(157, 46);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(143, 27);
+            textBoxEmail.TabIndex = 12;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(157, 23);
+            label8.Name = "label8";
+            label8.Size = new Size(52, 20);
+            label8.TabIndex = 11;
+            label8.Text = "E-mail";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(24, 23);
+            label7.Name = "label7";
+            label7.Size = new Size(84, 20);
+            label7.TabIndex = 0;
+            label7.Text = "Nr telefonu";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(24, 76);
+            label10.Name = "label10";
+            label10.Size = new Size(42, 20);
+            label10.TabIndex = 15;
+            label10.Text = "Ulica";
+            // 
+            // textBoxStreet
+            // 
+            textBoxStreet.Location = new Point(24, 99);
+            textBoxStreet.Name = "textBoxStreet";
+            textBoxStreet.Size = new Size(143, 27);
+            textBoxStreet.TabIndex = 14;
+            // 
+            // textBoxCity
+            // 
+            textBoxCity.Location = new Point(24, 152);
+            textBoxCity.Name = "textBoxCity";
+            textBoxCity.Size = new Size(143, 27);
+            textBoxCity.TabIndex = 19;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(170, 76);
+            label11.Name = "label11";
+            label11.Size = new Size(68, 20);
+            label11.TabIndex = 16;
+            label11.Text = "Nr domu";
+            // 
+            // textBoxHouseNum
+            // 
+            textBoxHouseNum.Location = new Point(173, 99);
+            textBoxHouseNum.Name = "textBoxHouseNum";
+            textBoxHouseNum.Size = new Size(65, 27);
+            textBoxHouseNum.TabIndex = 17;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(24, 129);
+            label12.Name = "label12";
+            label12.Size = new Size(93, 20);
+            label12.TabIndex = 18;
+            label12.Text = "Miejscowość";
             // 
             // groupBox1
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(maskedTextBoxPesel);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(radioButtonMale);
@@ -89,7 +178,7 @@
             groupBox1.Controls.Add(dateTimePicker);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(textBoxSurname);
-            groupBox1.Location = new Point(20, 56);
+            groupBox1.Location = new Point(3, 54);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(311, 194);
             groupBox1.TabIndex = 1;
@@ -194,145 +283,14 @@
             textBoxSurname.Size = new Size(143, 27);
             textBoxSurname.TabIndex = 7;
             // 
-            // groupBox3
-            // 
-            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox3.Controls.Add(maskedTextBoxPhoneNum);
-            groupBox3.Controls.Add(textBoxEmail);
-            groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(label7);
-            groupBox3.Controls.Add(label10);
-            groupBox3.Controls.Add(textBoxStreet);
-            groupBox3.Controls.Add(textBoxCity);
-            groupBox3.Controls.Add(label11);
-            groupBox3.Controls.Add(textBoxHouseNum);
-            groupBox3.Controls.Add(label12);
-            groupBox3.Location = new Point(20, 256);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(311, 186);
-            groupBox3.TabIndex = 2;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Dane kontaktowe";
-            // 
-            // maskedTextBoxPhoneNum
-            // 
-            maskedTextBoxPhoneNum.Location = new Point(24, 46);
-            maskedTextBoxPhoneNum.Mask = "000-000-000";
-            maskedTextBoxPhoneNum.Name = "maskedTextBoxPhoneNum";
-            maskedTextBoxPhoneNum.Size = new Size(125, 27);
-            maskedTextBoxPhoneNum.TabIndex = 22;
-            // 
-            // textBoxEmail
-            // 
-            textBoxEmail.Location = new Point(157, 46);
-            textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(143, 27);
-            textBoxEmail.TabIndex = 12;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(157, 23);
-            label8.Name = "label8";
-            label8.Size = new Size(52, 20);
-            label8.TabIndex = 11;
-            label8.Text = "E-mail";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(24, 23);
-            label7.Name = "label7";
-            label7.Size = new Size(84, 20);
-            label7.TabIndex = 0;
-            label7.Text = "Nr telefonu";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(24, 76);
-            label10.Name = "label10";
-            label10.Size = new Size(42, 20);
-            label10.TabIndex = 15;
-            label10.Text = "Ulica";
-            // 
-            // textBoxStreet
-            // 
-            textBoxStreet.Location = new Point(24, 99);
-            textBoxStreet.Name = "textBoxStreet";
-            textBoxStreet.Size = new Size(143, 27);
-            textBoxStreet.TabIndex = 14;
-            // 
-            // textBoxCity
-            // 
-            textBoxCity.Location = new Point(24, 152);
-            textBoxCity.Name = "textBoxCity";
-            textBoxCity.Size = new Size(143, 27);
-            textBoxCity.TabIndex = 19;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(170, 76);
-            label11.Name = "label11";
-            label11.Size = new Size(68, 20);
-            label11.TabIndex = 16;
-            label11.Text = "Nr domu";
-            // 
-            // textBoxHouseNum
-            // 
-            textBoxHouseNum.Location = new Point(173, 99);
-            textBoxHouseNum.Name = "textBoxHouseNum";
-            textBoxHouseNum.Size = new Size(65, 27);
-            textBoxHouseNum.TabIndex = 17;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(24, 129);
-            label12.Name = "label12";
-            label12.Size = new Size(93, 20);
-            label12.TabIndex = 18;
-            label12.Text = "Miejscowość";
-            // 
-            // btnCancel
-            // 
-            btnCancel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnCancel.Location = new Point(366, 413);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(94, 29);
-            btnCancel.TabIndex = 3;
-            btnCancel.Text = "Anuluj";
-            btnCancel.UseVisualStyleBackColor = true;
-            btnCancel.Click += btnCancel_Click;
-            // 
-            // btnConfirm
-            // 
-            btnConfirm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnConfirm.Location = new Point(477, 413);
-            btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(94, 29);
-            btnConfirm.TabIndex = 4;
-            btnConfirm.Text = "Zatwierdź";
-            btnConfirm.UseVisualStyleBackColor = true;
-            btnConfirm.Click += btnConfirm_Click;
-            // 
-            // monthCalendar1
-            // 
-            monthCalendar1.Location = new Point(12, 21);
-            monthCalendar1.MaxSelectionCount = 1;
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 12;
-            // 
             // groupBox2
             // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label13);
             groupBox2.Controls.Add(comboBoxDoctor);
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(comboBoxHours);
             groupBox2.Controls.Add(monthCalendar1);
-            groupBox2.Location = new Point(337, 56);
+            groupBox2.Location = new Point(320, 54);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(348, 351);
             groupBox2.TabIndex = 13;
@@ -375,22 +333,61 @@
             comboBoxHours.Size = new Size(151, 28);
             comboBoxHours.TabIndex = 13;
             // 
+            // monthCalendar1
+            // 
+            monthCalendar1.Location = new Point(12, 21);
+            monthCalendar1.MaxSelectionCount = 1;
+            monthCalendar1.Name = "monthCalendar1";
+            monthCalendar1.TabIndex = 12;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancel.Location = new Point(320, 411);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(94, 29);
+            btnCancel.TabIndex = 3;
+            btnCancel.Text = "Anuluj";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // btnConfirm
+            // 
+            btnConfirm.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnConfirm.Location = new Point(433, 411);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(94, 29);
+            btnConfirm.TabIndex = 4;
+            btnConfirm.Text = "Zatwierdź";
+            btnConfirm.UseVisualStyleBackColor = true;
+            btnConfirm.Click += btnConfirm_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(196, 38);
+            label1.TabIndex = 0;
+            label1.Text = "Nowy Pacjent";
+            // 
             // UcNewPatient
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(groupBox2);
             Controls.Add(btnConfirm);
-            Controls.Add(btnCancel);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox1);
             Controls.Add(label1);
+            Controls.Add(btnCancel);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(groupBox3);
             Name = "UcNewPatient";
             Size = new Size(702, 453);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
@@ -399,37 +396,37 @@
 
         #endregion
 
-        private Label label1;
-        private GroupBox groupBox1;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private RadioButton radioButtonMale;
-        private RadioButton radioButtonFemale;
-        private DateTimePicker dateTimePicker;
-        private TextBox textBoxSurname;
-        private TextBox textBoxName;
-        private Label label6;
         private GroupBox groupBox3;
-        private Label label7;
-        private TextBox textBoxCity;
-        private Label label12;
-        private TextBox textBoxHouseNum;
-        private Label label11;
-        private Label label10;
-        private TextBox textBoxStreet;
+        private MaskedTextBox maskedTextBoxPhoneNum;
         private TextBox textBoxEmail;
         private Label label8;
-        private Button btnCancel;
-        private Button btnConfirm;
+        private Label label7;
+        private Label label10;
+        private TextBox textBoxStreet;
+        private TextBox textBoxCity;
+        private Label label11;
+        private TextBox textBoxHouseNum;
+        private Label label12;
+        private GroupBox groupBox1;
         private MaskedTextBox maskedTextBoxPesel;
-        private MaskedTextBox maskedTextBoxPhoneNum;
-        private MonthCalendar monthCalendar1;
+        private Label label2;
+        private RadioButton radioButtonMale;
+        private Label label5;
+        private Label label6;
+        private RadioButton radioButtonFemale;
+        private Label label4;
+        private TextBox textBoxName;
+        private DateTimePicker dateTimePicker;
+        private Label label3;
+        private TextBox textBoxSurname;
         private GroupBox groupBox2;
-        private Label label9;
-        private ComboBox comboBoxHours;
         private Label label13;
         private ComboBox comboBoxDoctor;
+        private Label label9;
+        private ComboBox comboBoxHours;
+        private MonthCalendar monthCalendar1;
+        private Button btnCancel;
+        private Button btnConfirm;
+        private Label label1;
     }
 }

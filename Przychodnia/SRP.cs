@@ -5,6 +5,7 @@ namespace Przychodnia
         public SRP()
         {
             InitializeComponent();
+            Database.Load();
         }
 
 

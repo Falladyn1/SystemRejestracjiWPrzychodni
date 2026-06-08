@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            textBoxSearch = new TextBox();
             btnSearch = new Button();
             dataGridView1 = new DataGridView();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            btnAdd = new Button();
             ID = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
             surname = new DataGridViewTextBoxColumn();
             pesel = new DataGridViewTextBoxColumn();
             telNumber = new DataGridViewTextBoxColumn();
-            lastVisit = new DataGridViewTextBoxColumn();
-            btnEdit = new Button();
-            btnDelete = new Button();
-            btnAdd = new Button();
+            nextVisit = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // textBoxSearch
             // 
-            textBox1.Location = new Point(19, 25);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Pesel lub nazwisko";
-            textBox1.Size = new Size(220, 27);
-            textBox1.TabIndex = 0;
+            textBoxSearch.Location = new Point(19, 25);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.PlaceholderText = "Pesel lub nazwisko";
+            textBoxSearch.Size = new Size(220, 27);
+            textBoxSearch.TabIndex = 0;
             // 
             // btnSearch
             // 
@@ -59,6 +59,7 @@
             btnSearch.TabIndex = 1;
             btnSearch.Text = "Szukaj";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // dataGridView1
             // 
@@ -66,7 +67,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, name, surname, pesel, telNumber, lastVisit });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, name, surname, pesel, telNumber, nextVisit });
             dataGridView1.Location = new Point(19, 71);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -75,6 +76,36 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(667, 324);
             dataGridView1.TabIndex = 2;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEdit.Location = new Point(283, 410);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(120, 30);
+            btnEdit.TabIndex = 3;
+            btnEdit.Text = "Edytuj Pacjenta";
+            btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDelete.Location = new Point(566, 410);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(120, 30);
+            btnDelete.TabIndex = 4;
+            btnDelete.Text = "Umów Wizyte";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAdd.Location = new Point(424, 410);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(120, 30);
+            btnAdd.TabIndex = 5;
+            btnAdd.Text = "Usuń Pacjenta";
+            btnAdd.UseVisualStyleBackColor = true;
             // 
             // ID
             // 
@@ -111,42 +142,12 @@
             telNumber.Name = "telNumber";
             telNumber.ReadOnly = true;
             // 
-            // lastVisit
+            // nextVisit
             // 
-            lastVisit.HeaderText = "OSTATNIA WIZYTA";
-            lastVisit.MinimumWidth = 6;
-            lastVisit.Name = "lastVisit";
-            lastVisit.ReadOnly = true;
-            // 
-            // btnEdit
-            // 
-            btnEdit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEdit.Location = new Point(283, 410);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(120, 30);
-            btnEdit.TabIndex = 3;
-            btnEdit.Text = "Edytuj Pacjenta";
-            btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnDelete.Location = new Point(566, 410);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(120, 30);
-            btnDelete.TabIndex = 4;
-            btnDelete.Text = "Umów Wizyte";
-            btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAdd.Location = new Point(424, 410);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(120, 30);
-            btnAdd.TabIndex = 5;
-            btnAdd.Text = "Usuń Pacjenta";
-            btnAdd.UseVisualStyleBackColor = true;
+            nextVisit.HeaderText = "NASTEPNA WIZYTA";
+            nextVisit.MinimumWidth = 6;
+            nextVisit.Name = "nextVisit";
+            nextVisit.ReadOnly = true;
             // 
             // UcPatientList
             // 
@@ -157,7 +158,7 @@
             Controls.Add(btnEdit);
             Controls.Add(dataGridView1);
             Controls.Add(btnSearch);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxSearch);
             Name = "UcPatientList";
             Size = new Size(702, 453);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -167,17 +168,17 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox textBoxSearch;
         private Button btnSearch;
         private DataGridView dataGridView1;
+        private Button btnEdit;
+        private Button btnDelete;
+        private Button btnAdd;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn surname;
         private DataGridViewTextBoxColumn pesel;
         private DataGridViewTextBoxColumn telNumber;
-        private DataGridViewTextBoxColumn lastVisit;
-        private Button btnEdit;
-        private Button btnDelete;
-        private Button btnAdd;
+        private DataGridViewTextBoxColumn nextVisit;
     }
 }

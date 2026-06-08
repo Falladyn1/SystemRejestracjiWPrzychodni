@@ -30,8 +30,8 @@ namespace Przychodnia
             textBoxHouseNum.Text = null;
             textBoxCity.Text = null;
             dateTimePicker.Value = DateTime.Now;
-            comboBoxHours.SelectedIndex = 0;
-            comboBoxDoctor.SelectedIndex = 0;
+            //comboBoxHours.SelectedIndex = 0;
+            //comboBoxDoctor.SelectedIndex = 0;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -63,7 +63,9 @@ namespace Przychodnia
             p.HourVisit=comboBoxHours.Text;
             p.Doctor=comboBoxDoctor.Text;
 
+            btnCancel_Click(sender, e);
             Database.patientList.Add(p);
+            Database.Save();
             
         }
 
