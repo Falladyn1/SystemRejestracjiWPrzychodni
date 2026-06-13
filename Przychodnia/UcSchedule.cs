@@ -16,7 +16,7 @@ namespace Przychodnia
             monthCalendar1.DateChanged += monthCalendar1_DateChanged;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             button1.Click += button1_Click;
-            button2.Click += button2_Click;
+            btnRefresh.Click += button2_Click;
 
             monthCalendar1.SetDate(DateTime.Today);
             RefreshView();

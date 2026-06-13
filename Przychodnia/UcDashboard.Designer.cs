@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             labelTime = new Label();
             dataGridView1 = new DataGridView();
             panelPatientNum = new Panel();
@@ -55,12 +56,22 @@
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(53, 73, 94);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(16, 155);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(671, 287);
             dataGridView1.TabIndex = 10;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
@@ -69,7 +80,7 @@
             // 
             panelPatientNum.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panelPatientNum.AutoSize = true;
-            panelPatientNum.BackColor = Color.GreenYellow;
+            panelPatientNum.BackColor = Color.FromArgb(46, 204, 113);
             panelPatientNum.Controls.Add(labelNumOfPatients);
             panelPatientNum.Controls.Add(label2);
             panelPatientNum.Location = new Point(408, 13);
@@ -82,6 +93,7 @@
             labelNumOfPatients.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelNumOfPatients.AutoSize = true;
             labelNumOfPatients.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelNumOfPatients.ForeColor = Color.White;
             labelNumOfPatients.Location = new Point(46, 50);
             labelNumOfPatients.Name = "labelNumOfPatients";
             labelNumOfPatients.Size = new Size(38, 46);
@@ -91,6 +103,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.White;
             label2.Location = new Point(3, 5);
             label2.Name = "label2";
             label2.Size = new Size(122, 20);
@@ -101,7 +114,7 @@
             // 
             panelNewPatients.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panelNewPatients.AutoSize = true;
-            panelNewPatients.BackColor = Color.Gold;
+            panelNewPatients.BackColor = Color.FromArgb(241, 196, 15);
             panelNewPatients.Controls.Add(labelNumOfNewPatients);
             panelNewPatients.Controls.Add(label1);
             panelNewPatients.Location = new Point(557, 13);
@@ -114,6 +127,7 @@
             labelNumOfNewPatients.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelNumOfNewPatients.AutoSize = true;
             labelNumOfNewPatients.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            labelNumOfNewPatients.ForeColor = Color.White;
             labelNumOfNewPatients.Location = new Point(46, 50);
             labelNumOfNewPatients.Name = "labelNumOfNewPatients";
             labelNumOfNewPatients.Size = new Size(38, 46);
@@ -123,6 +137,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = Color.White;
             label1.Location = new Point(3, 5);
             label1.Name = "label1";
             label1.Size = new Size(106, 20);

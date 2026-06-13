@@ -28,46 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             textBoxSearch = new TextBox();
             btnSearch = new Button();
             dataGridView1 = new DataGridView();
-            btnEditPatient = new Button();
-            btnScheduleVisit = new Button();
-            btnDeletePatient = new Button();
             ID = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
             surname = new DataGridViewTextBoxColumn();
             pesel = new DataGridViewTextBoxColumn();
             telNumber = new DataGridViewTextBoxColumn();
             nextVisit = new DataGridViewTextBoxColumn();
+            btnEditPatient = new Button();
+            btnScheduleVisit = new Button();
+            btnDeletePatient = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // textBoxSearch
             // 
+            textBoxSearch.BorderStyle = BorderStyle.FixedSingle;
+            textBoxSearch.Font = new Font("Segoe UI", 10F);
             textBoxSearch.Location = new Point(19, 25);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Pesel lub nazwisko";
-            textBoxSearch.Size = new Size(220, 27);
+            textBoxSearch.Size = new Size(220, 30);
             textBoxSearch.TabIndex = 0;
             // 
             // btnSearch
             // 
+            btnSearch.BackColor = Color.FromArgb(53, 73, 94);
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+            btnSearch.ForeColor = Color.White;
             btnSearch.Location = new Point(245, 25);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 1;
             btnSearch.Text = "Szukaj";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(53, 73, 94);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, name, surname, pesel, telNumber, nextVisit });
+            dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(19, 71);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -76,38 +93,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(667, 324);
             dataGridView1.TabIndex = 2;
-            // 
-            // btnEditPatient
-            // 
-            btnEditPatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEditPatient.Location = new Point(283, 410);
-            btnEditPatient.Name = "btnEditPatient";
-            btnEditPatient.Size = new Size(120, 30);
-            btnEditPatient.TabIndex = 3;
-            btnEditPatient.Text = "Edytuj Pacjenta";
-            btnEditPatient.UseVisualStyleBackColor = true;
-            btnEditPatient.Click += btnEditPatient_Click;
-            // 
-            // btnScheduleVisit
-            // 
-            btnScheduleVisit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnScheduleVisit.Location = new Point(566, 410);
-            btnScheduleVisit.Name = "btnScheduleVisit";
-            btnScheduleVisit.Size = new Size(120, 30);
-            btnScheduleVisit.TabIndex = 4;
-            btnScheduleVisit.Text = "Umów Wizyte";
-            btnScheduleVisit.UseVisualStyleBackColor = true;
-            // 
-            // btnDeletePatient
-            // 
-            btnDeletePatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnDeletePatient.Location = new Point(424, 410);
-            btnDeletePatient.Name = "btnDeletePatient";
-            btnDeletePatient.Size = new Size(120, 30);
-            btnDeletePatient.TabIndex = 5;
-            btnDeletePatient.Text = "Usuń Pacjenta";
-            btnDeletePatient.UseVisualStyleBackColor = true;
-            btnDeletePatient.Click += btnDeletePatient_Click;
             // 
             // ID
             // 
@@ -151,10 +136,58 @@
             nextVisit.Name = "nextVisit";
             nextVisit.ReadOnly = true;
             // 
+            // btnEditPatient
+            // 
+            btnEditPatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEditPatient.BackColor = Color.FromArgb(52, 152, 219);
+            btnEditPatient.FlatAppearance.BorderSize = 0;
+            btnEditPatient.FlatStyle = FlatStyle.Flat;
+            btnEditPatient.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+            btnEditPatient.ForeColor = Color.White;
+            btnEditPatient.Location = new Point(283, 410);
+            btnEditPatient.Name = "btnEditPatient";
+            btnEditPatient.Size = new Size(120, 30);
+            btnEditPatient.TabIndex = 3;
+            btnEditPatient.Text = "Edytuj Pacjenta";
+            btnEditPatient.UseVisualStyleBackColor = false;
+            btnEditPatient.Click += btnEditPatient_Click;
+            // 
+            // btnScheduleVisit
+            // 
+            btnScheduleVisit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnScheduleVisit.BackColor = Color.FromArgb(52, 152, 219);
+            btnScheduleVisit.FlatAppearance.BorderSize = 0;
+            btnScheduleVisit.FlatStyle = FlatStyle.Flat;
+            btnScheduleVisit.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+            btnScheduleVisit.ForeColor = Color.White;
+            btnScheduleVisit.Location = new Point(566, 410);
+            btnScheduleVisit.Name = "btnScheduleVisit";
+            btnScheduleVisit.Size = new Size(120, 30);
+            btnScheduleVisit.TabIndex = 4;
+            btnScheduleVisit.Text = "Umów Wizyte";
+            btnScheduleVisit.UseVisualStyleBackColor = false;
+            // 
+            // btnDeletePatient
+            // 
+            btnDeletePatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDeletePatient.BackColor = Color.FromArgb(239, 83, 80);
+            btnDeletePatient.FlatAppearance.BorderSize = 0;
+            btnDeletePatient.FlatStyle = FlatStyle.Flat;
+            btnDeletePatient.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+            btnDeletePatient.ForeColor = Color.White;
+            btnDeletePatient.Location = new Point(424, 410);
+            btnDeletePatient.Name = "btnDeletePatient";
+            btnDeletePatient.Size = new Size(120, 30);
+            btnDeletePatient.TabIndex = 5;
+            btnDeletePatient.Text = "Usuń Pacjenta";
+            btnDeletePatient.UseVisualStyleBackColor = false;
+            btnDeletePatient.Click += btnDeletePatient_Click;
+            // 
             // UcPatientList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(btnDeletePatient);
             Controls.Add(btnScheduleVisit);
             Controls.Add(btnEditPatient);

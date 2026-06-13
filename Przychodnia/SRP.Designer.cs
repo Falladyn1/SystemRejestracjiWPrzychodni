@@ -43,7 +43,7 @@
             // 
             // panelMenu
             // 
-            panelMenu.BackColor = Color.Gainsboro;
+            panelMenu.BackColor = Color.FromArgb(33, 43, 54);
             panelMenu.Controls.Add(label3);
             panelMenu.Controls.Add(btnSettings);
             panelMenu.Controls.Add(btnSchedule);
@@ -51,6 +51,7 @@
             panelMenu.Controls.Add(btnPatientList);
             panelMenu.Controls.Add(btnDashboard);
             panelMenu.Dock = DockStyle.Left;
+            panelMenu.ForeColor = Color.White;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(130, 453);
@@ -70,18 +71,24 @@
             // 
             // btnSettings
             // 
-            btnSettings.Location = new Point(5, 154);
+            btnSettings.FlatAppearance.BorderSize = 0;
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.Font = new Font("Segoe UI", 10F);
+            btnSettings.Location = new Point(5, 274);
             btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(120, 30);
+            btnSettings.Size = new Size(120, 60);
             btnSettings.TabIndex = 4;
             btnSettings.Text = "Ustawienia";
             btnSettings.UseVisualStyleBackColor = true;
             // 
             // btnSchedule
             // 
-            btnSchedule.Location = new Point(5, 118);
+            btnSchedule.FlatAppearance.BorderSize = 0;
+            btnSchedule.FlatStyle = FlatStyle.Flat;
+            btnSchedule.Font = new Font("Segoe UI", 10F);
+            btnSchedule.Location = new Point(5, 208);
             btnSchedule.Name = "btnSchedule";
-            btnSchedule.Size = new Size(120, 30);
+            btnSchedule.Size = new Size(120, 60);
             btnSchedule.TabIndex = 3;
             btnSchedule.Text = "Terminarz";
             btnSchedule.UseVisualStyleBackColor = true;
@@ -89,9 +96,12 @@
             // 
             // btnNewPatient
             // 
-            btnNewPatient.Location = new Point(5, 82);
+            btnNewPatient.FlatAppearance.BorderSize = 0;
+            btnNewPatient.FlatStyle = FlatStyle.Flat;
+            btnNewPatient.Font = new Font("Segoe UI", 10F);
+            btnNewPatient.Location = new Point(5, 142);
             btnNewPatient.Name = "btnNewPatient";
-            btnNewPatient.Size = new Size(120, 30);
+            btnNewPatient.Size = new Size(120, 60);
             btnNewPatient.TabIndex = 1;
             btnNewPatient.Text = "Nowy Pacjent";
             btnNewPatient.UseVisualStyleBackColor = true;
@@ -99,9 +109,12 @@
             // 
             // btnPatientList
             // 
-            btnPatientList.Location = new Point(5, 46);
+            btnPatientList.FlatAppearance.BorderSize = 0;
+            btnPatientList.FlatStyle = FlatStyle.Flat;
+            btnPatientList.Font = new Font("Segoe UI", 10F);
+            btnPatientList.Location = new Point(5, 76);
             btnPatientList.Name = "btnPatientList";
-            btnPatientList.Size = new Size(120, 30);
+            btnPatientList.Size = new Size(120, 60);
             btnPatientList.TabIndex = 2;
             btnPatientList.Text = "Lista Pacjentów";
             btnPatientList.UseVisualStyleBackColor = true;
@@ -109,9 +122,12 @@
             // 
             // btnDashboard
             // 
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.Font = new Font("Segoe UI", 10F);
             btnDashboard.Location = new Point(5, 10);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(120, 30);
+            btnDashboard.Size = new Size(120, 60);
             btnDashboard.TabIndex = 1;
             btnDashboard.Text = "Panel Główny";
             btnDashboard.UseVisualStyleBackColor = true;

@@ -34,7 +34,7 @@
             label2 = new Label();
             comboBox1 = new ComboBox();
             button1 = new Button();
-            button2 = new Button();
+            btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -73,34 +73,46 @@
             // 
             // comboBox1
             // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.Font = new Font("Segoe UI", 10F);
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(9, 309);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
+            comboBox1.Size = new Size(151, 31);
             comboBox1.TabIndex = 4;
             // 
             // button1
             // 
+            button1.BackColor = Color.FromArgb(239, 83, 80);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+            button1.ForeColor = Color.White;
             button1.Location = new Point(9, 391);
             button1.Name = "button1";
             button1.Size = new Size(107, 29);
             button1.TabIndex = 5;
             button1.Text = "Usuń wizytę";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnRefresh
             // 
-            button2.Location = new Point(122, 391);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 6;
-            button2.UseVisualStyleBackColor = true;
+            btnRefresh.BackColor = Color.FromArgb(52, 152, 219);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(122, 391);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(94, 29);
+            btnRefresh.TabIndex = 6;
+            btnRefresh.Text = "Odśwież";
+            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // UcSchedule
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button2);
+            Controls.Add(btnRefresh);
             Controls.Add(button1);
             Controls.Add(comboBox1);
             Controls.Add(label2);
@@ -122,6 +134,6 @@
         private Label label2;
         private ComboBox comboBox1;
         private Button button1;
-        private Button button2;
+        private Button btnRefresh;
     }
 }
