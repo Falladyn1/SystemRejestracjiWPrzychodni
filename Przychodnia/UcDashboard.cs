@@ -17,7 +17,6 @@ namespace Przychodnia
         {
             labelTime.Text = System.DateTime.Now.ToString();
             RefreshStats();
-
         }
 
         private void RefreshStats()
@@ -33,7 +32,7 @@ namespace Przychodnia
                 .Where(p => p.DateVisit.Date == nextWeek)
                 .ToList();
 
-                numOfNextWeekVisits += nextWeekVisits.Count; 
+                numOfNextWeekVisits += nextWeekVisits.Count;
             }
 
             var todayVisits = Database.patientList
@@ -66,6 +65,11 @@ namespace Przychodnia
             if (dataGridView1.Columns["Doctor"] != null) dataGridView1.Columns["Doctor"].HeaderText = "Lekarz";
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
