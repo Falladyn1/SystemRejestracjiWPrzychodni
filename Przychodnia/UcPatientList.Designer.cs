@@ -41,6 +41,7 @@
             btnEditPatient = new Button();
             btnScheduleVisit = new Button();
             btnDeletePatient = new Button();
+            checkBoxToday = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -138,7 +139,7 @@
             // 
             // btnEditPatient
             // 
-            btnEditPatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEditPatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnEditPatient.BackColor = Color.FromArgb(52, 152, 219);
             btnEditPatient.FlatAppearance.BorderSize = 0;
             btnEditPatient.FlatStyle = FlatStyle.Flat;
@@ -154,7 +155,7 @@
             // 
             // btnScheduleVisit
             // 
-            btnScheduleVisit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnScheduleVisit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnScheduleVisit.BackColor = Color.FromArgb(52, 152, 219);
             btnScheduleVisit.FlatAppearance.BorderSize = 0;
             btnScheduleVisit.FlatStyle = FlatStyle.Flat;
@@ -169,7 +170,7 @@
             // 
             // btnDeletePatient
             // 
-            btnDeletePatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDeletePatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnDeletePatient.BackColor = Color.FromArgb(239, 83, 80);
             btnDeletePatient.FlatAppearance.BorderSize = 0;
             btnDeletePatient.FlatStyle = FlatStyle.Flat;
@@ -183,11 +184,22 @@
             btnDeletePatient.UseVisualStyleBackColor = false;
             btnDeletePatient.Click += btnDeletePatient_Click;
             // 
+            // checkBoxToday
+            // 
+            checkBoxToday.AutoSize = true;
+            checkBoxToday.Location = new Point(345, 29);
+            checkBoxToday.Name = "checkBoxToday";
+            checkBoxToday.Size = new Size(128, 24);
+            checkBoxToday.TabIndex = 6;
+            checkBoxToday.Text = "Tylko dziesjsze";
+            checkBoxToday.UseVisualStyleBackColor = true;
+            // 
             // UcPatientList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(checkBoxToday);
             Controls.Add(btnDeletePatient);
             Controls.Add(btnScheduleVisit);
             Controls.Add(btnEditPatient);
@@ -215,5 +227,6 @@
         private DataGridViewTextBoxColumn pesel;
         private DataGridViewTextBoxColumn telNumber;
         private DataGridViewTextBoxColumn nextVisit;
+        private CheckBox checkBoxToday;
     }
 }

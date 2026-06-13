@@ -21,10 +21,22 @@ namespace Przychodnia
 
             if (dataGridView1.Columns["nextVisit"] != null)
             {
-                dataGridView1.Columns["nextVisit"].DataPropertyName = "DateVisit";
-                dataGridView1.Columns["nextVisit"].DefaultCellStyle.Format = "g";
+                dataGridView1.Columns["nextVisit"].DataPropertyName = "FullVisitInfo";
+                dataGridView1.Columns["nextVisit"].DefaultCellStyle.Format = "";
             }
+
             if (dataGridView1.Columns["ID"] != null) dataGridView1.Columns["ID"].Visible = false;
+
+            if (dataGridView1.Columns["doctorCol"] == null)
+            {
+                DataGridViewTextBoxColumn doctorColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = "doctorCol",
+                    HeaderText = "LEKARZ",
+                    DataPropertyName = "Doctor"
+                };
+                dataGridView1.Columns.Add(doctorColumn);
+            }
 
             dataGridView1.DataSource = Database.patientList;
         }
@@ -32,20 +44,18 @@ namespace Przychodnia
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string phrase = textBoxSearch.Text.Trim().ToLower();
+            bool onlyToday = checkBoxToday.Checked;
 
-            if (string.IsNullOrEmpty(phrase))
+            dataGridView1.DataSource = Database.FilterPatients(p =>
             {
-                dataGridView1.DataSource = Database.patientList;
-            }
-            else
-            {
-                var filteredList = Database.patientList.Where(p =>
-                    (p.Pesel != null && p.Pesel.ToLower().Contains(phrase)) ||
-                    (p.Surname != null && p.Surname.ToLower().Contains(phrase))
-                ).ToList();
+                bool matchText = string.IsNullOrEmpty(phrase) ||
+                                 (p.Pesel != null && p.Pesel.ToLower().Contains(phrase)) ||
+                                 (p.Surname != null && p.Surname.ToLower().Contains(phrase));
 
-                dataGridView1.DataSource = new BindingList<Patient>(filteredList);
-            }
+                bool matchDate = !onlyToday || p.DateVisit.Date == DateTime.Today;
+
+                return matchText && matchDate;
+            });
         }
 
         private void btnDeletePatient_Click(object sender, EventArgs e)
@@ -61,8 +71,7 @@ namespace Przychodnia
                     Database.patientList.Remove(selectedPatient);
                     Database.Save();
 
-                    dataGridView1.DataSource = null;
-                    dataGridView1.DataSource = Database.patientList;
+                    btnSearch_Click(sender, e);
                 }
             }
             else

@@ -6,6 +6,8 @@ namespace Przychodnia
         {
             InitializeComponent();
             Database.Load();
+
+            this.WindowState = FormWindowState.Maximized;
         }
 
 
@@ -43,6 +45,11 @@ namespace Przychodnia
             UcSchedule schedule = new UcSchedule();
             schedule.Dock = DockStyle.Fill;
             panelMain.Controls.Add(schedule);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

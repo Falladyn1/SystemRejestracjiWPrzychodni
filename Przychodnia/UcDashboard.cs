@@ -59,7 +59,7 @@ namespace Przychodnia
             if (dataGridView1.Columns["DateVisit"] != null)
             {
                 dataGridView1.Columns["DateVisit"].HeaderText = "Data Wizyty";
-                dataGridView1.Columns["DateVisit"].DefaultCellStyle.Format = "g"; // Pokazuje datę i godzinę
+                dataGridView1.Columns["DateVisit"].DefaultCellStyle.Format = "g";
             }
             if (dataGridView1.Columns["HourVisit"] != null) dataGridView1.Columns["HourVisit"].HeaderText = "Godzina";
             if (dataGridView1.Columns["Doctor"] != null) dataGridView1.Columns["Doctor"].HeaderText = "Lekarz";
@@ -67,9 +67,6 @@ namespace Przychodnia
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
     }
 }

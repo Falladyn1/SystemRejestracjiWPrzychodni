@@ -19,5 +19,13 @@ namespace Przychodnia
         public DateTime DateVisit { get; set; }
         public string HourVisit { get; set; }
         public string Doctor { get; set; }
+
+        public string FullVisitInfo
+        {
+            get
+            {
+                return DateVisit.ToString("dd.MM.yyyy") + " - " + HourVisit;
+            }
+        }
     }
 }

@@ -31,26 +31,26 @@
             groupBox3 = new GroupBox();
             maskedTextBoxPhoneNum = new MaskedTextBox();
             textBoxEmail = new TextBox();
-            label8 = new Label();
             label7 = new Label();
             label10 = new Label();
+            label8 = new Label();
             textBoxStreet = new TextBox();
-            textBoxCity = new TextBox();
-            label11 = new Label();
             textBoxHouseNum = new TextBox();
+            label11 = new Label();
+            textBoxCity = new TextBox();
             label12 = new Label();
             groupBox1 = new GroupBox();
             maskedTextBoxPesel = new MaskedTextBox();
             label2 = new Label();
             radioButtonMale = new RadioButton();
             label5 = new Label();
-            label6 = new Label();
-            radioButtonFemale = new RadioButton();
-            label4 = new Label();
             textBoxName = new TextBox();
             dateTimePicker = new DateTimePicker();
+            radioButtonFemale = new RadioButton();
             label3 = new Label();
             textBoxSurname = new TextBox();
+            label6 = new Label();
+            label4 = new Label();
             groupBox2 = new GroupBox();
             label13 = new Label();
             comboBoxDoctor = new ComboBox();
@@ -67,58 +67,53 @@
             // 
             // groupBox3
             // 
+            groupBox3.Anchor = AnchorStyles.None;
             groupBox3.Controls.Add(maskedTextBoxPhoneNum);
             groupBox3.Controls.Add(textBoxEmail);
-            groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(label7);
             groupBox3.Controls.Add(label10);
-            groupBox3.Controls.Add(textBoxStreet);
+            groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(textBoxCity);
-            groupBox3.Controls.Add(label11);
+            groupBox3.Controls.Add(textBoxStreet);
             groupBox3.Controls.Add(textBoxHouseNum);
             groupBox3.Controls.Add(label12);
+            groupBox3.Controls.Add(label11);
             groupBox3.Font = new Font("Segoe UI", 10.2F);
-            groupBox3.Location = new Point(3, 292);
+            groupBox3.Location = new Point(536, 86);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(350, 214);
+            groupBox3.Size = new Size(491, 362);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Dane kontaktowe";
             // 
             // maskedTextBoxPhoneNum
             // 
+            maskedTextBoxPhoneNum.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             maskedTextBoxPhoneNum.BackColor = Color.White;
             maskedTextBoxPhoneNum.BorderStyle = BorderStyle.FixedSingle;
             maskedTextBoxPhoneNum.Font = new Font("Segoe UI", 10F);
-            maskedTextBoxPhoneNum.Location = new Point(27, 53);
+            maskedTextBoxPhoneNum.Location = new Point(22, 54);
             maskedTextBoxPhoneNum.Mask = "000-000-000";
             maskedTextBoxPhoneNum.Name = "maskedTextBoxPhoneNum";
-            maskedTextBoxPhoneNum.Size = new Size(140, 30);
+            maskedTextBoxPhoneNum.Size = new Size(97, 30);
             maskedTextBoxPhoneNum.TabIndex = 22;
             // 
             // textBoxEmail
             // 
+            textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxEmail.BackColor = Color.White;
             textBoxEmail.BorderStyle = BorderStyle.FixedSingle;
             textBoxEmail.Font = new Font("Segoe UI", 10F);
-            textBoxEmail.Location = new Point(177, 53);
+            textBoxEmail.Location = new Point(22, 115);
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(160, 30);
+            textBoxEmail.Size = new Size(281, 30);
             textBoxEmail.TabIndex = 12;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(177, 26);
-            label8.Name = "label8";
-            label8.Size = new Size(58, 23);
-            label8.TabIndex = 11;
-            label8.Text = "E-mail";
             // 
             // label7
             // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(27, 26);
+            label7.Location = new Point(22, 26);
             label7.Name = "label7";
             label7.Size = new Size(97, 23);
             label7.TabIndex = 0;
@@ -126,56 +121,71 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label10.AutoSize = true;
-            label10.Location = new Point(27, 87);
+            label10.Location = new Point(22, 148);
             label10.Name = "label10";
             label10.Size = new Size(47, 23);
             label10.TabIndex = 15;
             label10.Text = "Ulica";
             // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Location = new Point(22, 89);
+            label8.Name = "label8";
+            label8.Size = new Size(58, 23);
+            label8.TabIndex = 11;
+            label8.Text = "E-mail";
+            // 
             // textBoxStreet
             // 
+            textBoxStreet.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxStreet.BackColor = Color.White;
             textBoxStreet.BorderStyle = BorderStyle.FixedSingle;
             textBoxStreet.Font = new Font("Segoe UI", 10F);
-            textBoxStreet.Location = new Point(27, 114);
+            textBoxStreet.Location = new Point(22, 174);
             textBoxStreet.Name = "textBoxStreet";
-            textBoxStreet.Size = new Size(160, 30);
+            textBoxStreet.Size = new Size(281, 30);
             textBoxStreet.TabIndex = 14;
             // 
-            // textBoxCity
+            // textBoxHouseNum
             // 
-            textBoxCity.BackColor = Color.White;
-            textBoxCity.BorderStyle = BorderStyle.FixedSingle;
-            textBoxCity.Font = new Font("Segoe UI", 10F);
-            textBoxCity.Location = new Point(27, 175);
-            textBoxCity.Name = "textBoxCity";
-            textBoxCity.Size = new Size(160, 30);
-            textBoxCity.TabIndex = 19;
+            textBoxHouseNum.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxHouseNum.BackColor = Color.White;
+            textBoxHouseNum.BorderStyle = BorderStyle.FixedSingle;
+            textBoxHouseNum.Font = new Font("Segoe UI", 10F);
+            textBoxHouseNum.Location = new Point(321, 174);
+            textBoxHouseNum.Name = "textBoxHouseNum";
+            textBoxHouseNum.Size = new Size(116, 30);
+            textBoxHouseNum.TabIndex = 17;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(191, 87);
+            label11.Location = new Point(321, 148);
             label11.Name = "label11";
             label11.Size = new Size(79, 23);
             label11.TabIndex = 16;
             label11.Text = "Nr domu";
             // 
-            // textBoxHouseNum
+            // textBoxCity
             // 
-            textBoxHouseNum.BackColor = Color.White;
-            textBoxHouseNum.BorderStyle = BorderStyle.FixedSingle;
-            textBoxHouseNum.Font = new Font("Segoe UI", 10F);
-            textBoxHouseNum.Location = new Point(195, 114);
-            textBoxHouseNum.Name = "textBoxHouseNum";
-            textBoxHouseNum.Size = new Size(73, 30);
-            textBoxHouseNum.TabIndex = 17;
+            textBoxCity.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxCity.BackColor = Color.White;
+            textBoxCity.BorderStyle = BorderStyle.FixedSingle;
+            textBoxCity.Font = new Font("Segoe UI", 10F);
+            textBoxCity.Location = new Point(22, 233);
+            textBoxCity.Name = "textBoxCity";
+            textBoxCity.Size = new Size(281, 30);
+            textBoxCity.TabIndex = 19;
             // 
             // label12
             // 
+            label12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label12.AutoSize = true;
-            label12.Location = new Point(27, 148);
+            label12.Location = new Point(22, 207);
             label12.Name = "label12";
             label12.Size = new Size(104, 23);
             label12.TabIndex = 18;
@@ -183,38 +193,41 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.None;
             groupBox1.Controls.Add(maskedTextBoxPesel);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(radioButtonMale);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(radioButtonFemale);
-            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(textBoxName);
             groupBox1.Controls.Add(dateTimePicker);
+            groupBox1.Controls.Add(radioButtonFemale);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(textBoxSurname);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(label4);
             groupBox1.Font = new Font("Segoe UI", 10.2F);
-            groupBox1.Location = new Point(3, 62);
+            groupBox1.Location = new Point(22, 86);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(350, 223);
+            groupBox1.Size = new Size(508, 362);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Dane podstawowe";
             // 
             // maskedTextBoxPesel
             // 
+            maskedTextBoxPesel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             maskedTextBoxPesel.BackColor = Color.White;
             maskedTextBoxPesel.BorderStyle = BorderStyle.FixedSingle;
             maskedTextBoxPesel.Font = new Font("Segoe UI", 10F);
-            maskedTextBoxPesel.Location = new Point(27, 112);
+            maskedTextBoxPesel.Location = new Point(27, 248);
             maskedTextBoxPesel.Mask = "00000000000";
             maskedTextBoxPesel.Name = "maskedTextBoxPesel";
-            maskedTextBoxPesel.Size = new Size(140, 30);
+            maskedTextBoxPesel.Size = new Size(318, 30);
             maskedTextBoxPesel.TabIndex = 10;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Location = new Point(29, 26);
             label2.Name = "label2";
@@ -224,8 +237,9 @@
             // 
             // radioButtonMale
             // 
+            radioButtonMale.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radioButtonMale.AutoSize = true;
-            radioButtonMale.Location = new Point(127, 175);
+            radioButtonMale.Location = new Point(121, 306);
             radioButtonMale.Name = "radioButtonMale";
             radioButtonMale.Size = new Size(114, 27);
             radioButtonMale.TabIndex = 9;
@@ -235,26 +249,40 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(174, 87);
+            label5.Location = new Point(29, 158);
             label5.Name = "label5";
             label5.Size = new Size(127, 23);
             label5.TabIndex = 5;
             label5.Text = "Data urodzenia";
             // 
-            // label6
+            // textBoxName
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(32, 148);
-            label6.Name = "label6";
-            label6.Size = new Size(42, 23);
-            label6.TabIndex = 6;
-            label6.Text = "Płeć";
+            textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxName.BackColor = Color.White;
+            textBoxName.BorderStyle = BorderStyle.FixedSingle;
+            textBoxName.Font = new Font("Segoe UI", 10F);
+            textBoxName.Location = new Point(27, 53);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(318, 30);
+            textBoxName.TabIndex = 2;
+            // 
+            // dateTimePicker
+            // 
+            dateTimePicker.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dateTimePicker.Format = DateTimePickerFormat.Short;
+            dateTimePicker.Location = new Point(27, 190);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new Size(318, 30);
+            dateTimePicker.TabIndex = 2;
+            dateTimePicker.Value = new DateTime(2026, 6, 1, 0, 0, 0, 0);
             // 
             // radioButtonFemale
             // 
+            radioButtonFemale.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radioButtonFemale.AutoSize = true;
-            radioButtonFemale.Location = new Point(32, 175);
+            radioButtonFemale.Location = new Point(26, 306);
             radioButtonFemale.Name = "radioButtonFemale";
             radioButtonFemale.Size = new Size(89, 27);
             radioButtonFemale.TabIndex = 2;
@@ -262,38 +290,11 @@
             radioButtonFemale.Text = "Kobieta";
             radioButtonFemale.UseVisualStyleBackColor = true;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(29, 87);
-            label4.Name = "label4";
-            label4.Size = new Size(55, 23);
-            label4.TabIndex = 4;
-            label4.Text = "PESEL";
-            // 
-            // textBoxName
-            // 
-            textBoxName.BackColor = Color.White;
-            textBoxName.BorderStyle = BorderStyle.FixedSingle;
-            textBoxName.Font = new Font("Segoe UI", 10F);
-            textBoxName.Location = new Point(27, 53);
-            textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(127, 30);
-            textBoxName.TabIndex = 2;
-            // 
-            // dateTimePicker
-            // 
-            dateTimePicker.Format = DateTimePickerFormat.Short;
-            dateTimePicker.Location = new Point(174, 112);
-            dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(160, 30);
-            dateTimePicker.TabIndex = 2;
-            dateTimePicker.Value = new DateTime(2026, 6, 1, 0, 0, 0, 0);
-            // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(161, 26);
+            label3.Location = new Point(29, 89);
             label3.Name = "label3";
             label3.Size = new Size(81, 23);
             label3.TabIndex = 3;
@@ -301,33 +302,56 @@
             // 
             // textBoxSurname
             // 
+            textBoxSurname.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxSurname.BackColor = Color.White;
             textBoxSurname.BorderStyle = BorderStyle.FixedSingle;
             textBoxSurname.Font = new Font("Segoe UI", 10F);
-            textBoxSurname.Location = new Point(161, 53);
+            textBoxSurname.Location = new Point(27, 115);
             textBoxSurname.Name = "textBoxSurname";
-            textBoxSurname.Size = new Size(160, 30);
+            textBoxSurname.Size = new Size(318, 30);
             textBoxSurname.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(29, 282);
+            label6.Name = "label6";
+            label6.Size = new Size(42, 23);
+            label6.TabIndex = 6;
+            label6.Text = "Płeć";
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Location = new Point(29, 223);
+            label4.Name = "label4";
+            label4.Size = new Size(55, 23);
+            label4.TabIndex = 4;
+            label4.Text = "PESEL";
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.None;
             groupBox2.Controls.Add(label13);
-            groupBox2.Controls.Add(comboBoxDoctor);
-            groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(comboBoxHours);
             groupBox2.Controls.Add(monthCalendar1);
+            groupBox2.Controls.Add(label9);
+            groupBox2.Controls.Add(comboBoxDoctor);
+            groupBox2.Controls.Add(comboBoxHours);
             groupBox2.Font = new Font("Segoe UI", 10.2F);
-            groupBox2.Location = new Point(360, 62);
+            groupBox2.Location = new Point(22, 454);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(392, 404);
+            groupBox2.Size = new Size(544, 271);
             groupBox2.TabIndex = 13;
             groupBox2.TabStop = false;
             groupBox2.Text = "Data wizyty";
             // 
             // label13
             // 
+            label13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label13.AutoSize = true;
-            label13.Location = new Point(14, 335);
+            label13.Location = new Point(352, 96);
             label13.Name = "label13";
             label13.Size = new Size(58, 23);
             label13.TabIndex = 16;
@@ -335,18 +359,20 @@
             // 
             // comboBoxDoctor
             // 
+            comboBoxDoctor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxDoctor.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxDoctor.FlatStyle = FlatStyle.Flat;
             comboBoxDoctor.FormattingEnabled = true;
-            comboBoxDoctor.Location = new Point(14, 361);
+            comboBoxDoctor.Location = new Point(352, 122);
             comboBoxDoctor.Name = "comboBoxDoctor";
-            comboBoxDoctor.Size = new Size(169, 31);
+            comboBoxDoctor.Size = new Size(142, 31);
             comboBoxDoctor.TabIndex = 15;
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label9.AutoSize = true;
-            label9.Location = new Point(14, 273);
+            label9.Location = new Point(352, 34);
             label9.Name = "label9";
             label9.Size = new Size(73, 23);
             label9.TabIndex = 14;
@@ -354,30 +380,32 @@
             // 
             // comboBoxHours
             // 
+            comboBoxHours.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxHours.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxHours.FlatStyle = FlatStyle.Flat;
             comboBoxHours.FormattingEnabled = true;
-            comboBoxHours.Location = new Point(14, 299);
+            comboBoxHours.Location = new Point(352, 60);
             comboBoxHours.Name = "comboBoxHours";
-            comboBoxHours.Size = new Size(169, 31);
+            comboBoxHours.Size = new Size(142, 31);
             comboBoxHours.TabIndex = 13;
             // 
             // monthCalendar1
             // 
+            monthCalendar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             monthCalendar1.Location = new Point(14, 24);
-            monthCalendar1.Margin = new Padding(10, 10, 10, 10);
+            monthCalendar1.Margin = new Padding(10);
             monthCalendar1.MaxSelectionCount = 1;
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 12;
             // 
             // btnCancel
             // 
-            btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancel.Anchor = AnchorStyles.None;
             btnCancel.BackColor = Color.FromArgb(239, 83, 80);
             btnCancel.FlatAppearance.BorderSize = 0;
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnCancel.Location = new Point(360, 473);
+            btnCancel.Location = new Point(600, 488);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(106, 33);
             btnCancel.TabIndex = 3;
@@ -387,12 +415,12 @@
             // 
             // btnConfirm
             // 
-            btnConfirm.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnConfirm.Anchor = AnchorStyles.None;
             btnConfirm.BackColor = Color.FromArgb(46, 204, 113);
             btnConfirm.FlatAppearance.BorderSize = 0;
             btnConfirm.FlatStyle = FlatStyle.Flat;
             btnConfirm.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnConfirm.Location = new Point(487, 473);
+            btnConfirm.Location = new Point(600, 547);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(106, 33);
             btnConfirm.TabIndex = 4;
@@ -402,9 +430,10 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label1.Location = new Point(3, 0);
+            label1.Location = new Point(22, 21);
             label1.Name = "label1";
             label1.Size = new Size(196, 38);
             label1.TabIndex = 0;
@@ -422,7 +451,7 @@
             Controls.Add(groupBox3);
             Font = new Font("Segoe UI", 10.2F);
             Name = "UcNewPatient";
-            Size = new Size(790, 521);
+            Size = new Size(1052, 753);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox1.ResumeLayout(false);

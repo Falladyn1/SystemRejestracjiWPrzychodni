@@ -54,7 +54,7 @@
             panelMenu.ForeColor = Color.White;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(130, 453);
+            panelMenu.Size = new Size(130, 753);
             panelMenu.TabIndex = 0;
             // 
             // label3
@@ -62,7 +62,7 @@
             label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label3.ImageAlign = ContentAlignment.MiddleRight;
-            label3.Location = new Point(0, 379);
+            label3.Location = new Point(0, 679);
             label3.Name = "label3";
             label3.Size = new Size(130, 74);
             label3.TabIndex = 5;
@@ -139,7 +139,7 @@
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(130, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(702, 453);
+            panelMain.Size = new Size(1052, 753);
             panelMain.TabIndex = 7;
             // 
             // label1
@@ -149,21 +149,22 @@
             label1.ImageAlign = ContentAlignment.MiddleRight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(702, 453);
+            label1.Size = new Size(1052, 753);
             label1.TabIndex = 6;
             label1.Text = "System Rezerwacji Pacjentów\r\nMateusz Falkowski\r\n";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // SRP
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(832, 453);
+            ClientSize = new Size(1182, 753);
             Controls.Add(panelMain);
             Controls.Add(panelMenu);
             Name = "SRP";
-            Text = "Form1";
+            Text = "SRP";
             panelMenu.ResumeLayout(false);
             panelMain.ResumeLayout(false);
             ResumeLayout(false);

@@ -10,6 +10,23 @@ namespace Przychodnia
         public static BindingList<Patient> patientList = new BindingList<Patient>();
         private readonly static string filePath = "zapis.txt";
 
+       // Func<CoWpada, CoZwraca>
+        public static BindingList<Patient> FilterPatients(Func<Patient, bool> checkCondition)
+        {
+            var filteredList = new BindingList<Patient>();
+
+            foreach (Patient p in patientList)
+            {
+                // Wywołujemy przekazaną logikę
+                if (checkCondition(p))
+                {
+                    filteredList.Add(p);
+                }
+            }
+
+            return filteredList;
+        }
+
         public static void Save()
         {
             using (StreamWriter writer = new StreamWriter(filePath, false))
@@ -53,7 +70,7 @@ namespace Przychodnia
             using (StreamReader reader = new StreamReader(filePath))
             {
                 Patient currentObject = null;
-                Type currentType = typeof(Patient); 
+                Type currentType = typeof(Patient);
                 string line;
 
                 while ((line = reader.ReadLine()) != null)

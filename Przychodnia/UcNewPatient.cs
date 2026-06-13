@@ -132,5 +132,7 @@ namespace Przychodnia
             MessageBox.Show("Zapisano pomyślnie!");
             btnCancel_Click(sender, e);
         }
+
+       
     }
 }
