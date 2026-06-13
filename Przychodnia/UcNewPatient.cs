@@ -108,6 +108,22 @@ namespace Przychodnia
                 return;
             }
 
+            DateTime newDateVisit = monthCalendar1.SelectionRange.Start;
+            string newHourVisit = comboBoxHours.Text;
+            string newDoctor = comboBoxDoctor.Text;
+
+            bool isTerminZajety = Database.patientList.Any(p =>
+                p != currentPatient &&
+                p.Doctor == newDoctor &&
+                p.DateVisit.Date == newDateVisit.Date &&
+                p.HourVisit == newHourVisit);
+
+            if (isTerminZajety)
+            {
+                MessageBox.Show($"Termin u {newDoctor} w dniu {newDateVisit:dd.MM.yyyy} o godzinie {newHourVisit} jest już zajęty!\nProszę wybrać inną datę lub lekarza.", "Błąd rejestracji", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Patient p = currentPatient ?? new Patient();
 
             p.Name = textBoxName.Text;
@@ -120,9 +136,9 @@ namespace Przychodnia
             p.Street = textBoxStreet.Text;
             p.HouseNumber = textBoxHouseNum.Text;
             p.City = textBoxCity.Text;
-            p.DateVisit = monthCalendar1.SelectionRange.Start;
-            p.HourVisit = comboBoxHours.Text;
-            p.Doctor = comboBoxDoctor.Text;
+            p.DateVisit = newDateVisit;
+            p.HourVisit = newHourVisit;
+            p.Doctor = newDoctor;
 
             if (currentPatient == null)
                 Database.patientList.Add(p);
@@ -133,6 +149,6 @@ namespace Przychodnia
             btnCancel_Click(sender, e);
         }
 
-       
+
     }
 }
