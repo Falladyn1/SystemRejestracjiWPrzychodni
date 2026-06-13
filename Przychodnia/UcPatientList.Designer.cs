@@ -31,15 +31,15 @@
             textBoxSearch = new TextBox();
             btnSearch = new Button();
             dataGridView1 = new DataGridView();
+            btnEditPatient = new Button();
+            btnScheduleVisit = new Button();
+            btnDeletePatient = new Button();
             ID = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
             surname = new DataGridViewTextBoxColumn();
             pesel = new DataGridViewTextBoxColumn();
             telNumber = new DataGridViewTextBoxColumn();
             nextVisit = new DataGridViewTextBoxColumn();
-            btnEditPatient = new Button();
-            btnScheduleVisit = new Button();
-            btnDeletePatient = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -76,6 +76,38 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(667, 324);
             dataGridView1.TabIndex = 2;
+            // 
+            // btnEditPatient
+            // 
+            btnEditPatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEditPatient.Location = new Point(283, 410);
+            btnEditPatient.Name = "btnEditPatient";
+            btnEditPatient.Size = new Size(120, 30);
+            btnEditPatient.TabIndex = 3;
+            btnEditPatient.Text = "Edytuj Pacjenta";
+            btnEditPatient.UseVisualStyleBackColor = true;
+            btnEditPatient.Click += btnEditPatient_Click;
+            // 
+            // btnScheduleVisit
+            // 
+            btnScheduleVisit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnScheduleVisit.Location = new Point(566, 410);
+            btnScheduleVisit.Name = "btnScheduleVisit";
+            btnScheduleVisit.Size = new Size(120, 30);
+            btnScheduleVisit.TabIndex = 4;
+            btnScheduleVisit.Text = "Umów Wizyte";
+            btnScheduleVisit.UseVisualStyleBackColor = true;
+            // 
+            // btnDeletePatient
+            // 
+            btnDeletePatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDeletePatient.Location = new Point(424, 410);
+            btnDeletePatient.Name = "btnDeletePatient";
+            btnDeletePatient.Size = new Size(120, 30);
+            btnDeletePatient.TabIndex = 5;
+            btnDeletePatient.Text = "Usuń Pacjenta";
+            btnDeletePatient.UseVisualStyleBackColor = true;
+            btnDeletePatient.Click += btnDeletePatient_Click;
             // 
             // ID
             // 
@@ -114,42 +146,10 @@
             // 
             // nextVisit
             // 
-            nextVisit.HeaderText = "NASTEPNA WIZYTA";
+            nextVisit.HeaderText = "NASTĘPNA WIZYTA";
             nextVisit.MinimumWidth = 6;
             nextVisit.Name = "nextVisit";
             nextVisit.ReadOnly = true;
-            // 
-            // btnEditPatient
-            // 
-            btnEditPatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEditPatient.Location = new Point(283, 410);
-            btnEditPatient.Name = "btnEditPatient";
-            btnEditPatient.Size = new Size(120, 30);
-            btnEditPatient.TabIndex = 3;
-            btnEditPatient.Text = "Edytuj Pacjenta";
-            btnEditPatient.UseVisualStyleBackColor = true;
-            btnEditPatient.Click += btnEditPatient_Click;
-            // 
-            // btnScheduleVisit
-            // 
-            btnScheduleVisit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnScheduleVisit.Location = new Point(566, 410);
-            btnScheduleVisit.Name = "btnScheduleVisit";
-            btnScheduleVisit.Size = new Size(120, 30);
-            btnScheduleVisit.TabIndex = 4;
-            btnScheduleVisit.Text = "Umów Wizyte";
-            btnScheduleVisit.UseVisualStyleBackColor = true;
-            // 
-            // btnDeletePatient
-            // 
-            btnDeletePatient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnDeletePatient.Location = new Point(424, 410);
-            btnDeletePatient.Name = "btnDeletePatient";
-            btnDeletePatient.Size = new Size(120, 30);
-            btnDeletePatient.TabIndex = 5;
-            btnDeletePatient.Text = "Usuń Pacjenta";
-            btnDeletePatient.UseVisualStyleBackColor = true;
-            btnDeletePatient.Click += btnDeletePatient_Click;
             // 
             // UcPatientList
             // 

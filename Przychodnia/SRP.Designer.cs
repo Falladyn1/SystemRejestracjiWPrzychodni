@@ -103,7 +103,7 @@
             btnPatientList.Name = "btnPatientList";
             btnPatientList.Size = new Size(120, 30);
             btnPatientList.TabIndex = 2;
-            btnPatientList.Text = "Lista Pacejntów";
+            btnPatientList.Text = "Lista Pacjentów";
             btnPatientList.UseVisualStyleBackColor = true;
             btnPatientList.Click += btnPatientList_Click;
             // 

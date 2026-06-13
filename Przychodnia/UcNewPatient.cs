@@ -1,19 +1,47 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Przychodnia
 {
     public partial class UcNewPatient : UserControl
     {
-        // Zmienna przechowująca edytowanego pacjenta
         private Patient currentPatient = null;
+
+        private static readonly string[] availableHours = {
+            "08:00", "08:30", "09:00", "09:30", "10:00", "10:30",
+            "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
+            "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"
+        };
+
+        private static readonly string[] availableDoctors = {
+            "dr Jan Kowalski",
+            "dr Anna Nowak",
+            "dr Piotr Wiśniewski",
+            "dr Maria Wójcik"
+        };
 
         public UcNewPatient()
         {
             InitializeComponent();
+            LoadComboBoxes();
         }
 
-        public void WczytajDoEdycji(Patient p)
+        private void LoadComboBoxes()
+        {
+            comboBoxHours.Items.Clear();
+            foreach (string hour in availableHours)
+                comboBoxHours.Items.Add(hour);
+
+            comboBoxDoctor.Items.Clear();
+            foreach (string doctor in availableDoctors)
+                comboBoxDoctor.Items.Add(doctor);
+
+            if (comboBoxHours.Items.Count > 0) comboBoxHours.SelectedIndex = 0;
+            if (comboBoxDoctor.Items.Count > 0) comboBoxDoctor.SelectedIndex = 0;
+        }
+
+        public void LoadForEdit(Patient p)
         {
             currentPatient = p;
 
@@ -24,7 +52,7 @@ namespace Przychodnia
             if (p.Date >= dateTimePicker.MinDate && p.Date <= dateTimePicker.MaxDate)
                 dateTimePicker.Value = p.Date;
 
-            if (p.Sex == true) radioButtonMale.Checked = true;
+            if (p.Sex) radioButtonMale.Checked = true;
             else radioButtonFemale.Checked = true;
 
             maskedTextBoxPhoneNum.Text = p.PhoneNumber;
@@ -43,6 +71,9 @@ namespace Przychodnia
             btnConfirm.Text = "Zapisz Zmiany";
         }
 
+        // Zostawiam stare nazwę jako wrapper żeby UcPatientList.cs nie wymagało zmian
+        public void WczytajDoEdycji(Patient p) => LoadForEdit(p);
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             textBoxName.Text = null;
@@ -60,7 +91,6 @@ namespace Przychodnia
             if (comboBoxHours.Items.Count > 0) comboBoxHours.SelectedIndex = 0;
             if (comboBoxDoctor.Items.Count > 0) comboBoxDoctor.SelectedIndex = 0;
 
-            // Reset trybu edycji
             currentPatient = null;
             label1.Text = "Nowy Pacjent";
             btnConfirm.Text = "Zatwierdź";
@@ -78,11 +108,7 @@ namespace Przychodnia
                 return;
             }
 
-            Patient p;
-            if (currentPatient != null)
-                p = currentPatient;
-            else
-                p = new Patient();
+            Patient p = currentPatient ?? new Patient();
 
             p.Name = textBoxName.Text;
             p.Surname = textBoxSurname.Text;
@@ -94,15 +120,12 @@ namespace Przychodnia
             p.Street = textBoxStreet.Text;
             p.HouseNumber = textBoxHouseNum.Text;
             p.City = textBoxCity.Text;
-
             p.DateVisit = monthCalendar1.SelectionRange.Start;
             p.HourVisit = comboBoxHours.Text;
             p.Doctor = comboBoxDoctor.Text;
 
             if (currentPatient == null)
-            {
                 Database.patientList.Add(p);
-            }
 
             Database.Save();
 

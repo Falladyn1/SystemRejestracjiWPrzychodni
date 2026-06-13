@@ -67,9 +67,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(9, 286);
             label2.Name = "label2";
-            label2.Size = new Size(106, 20);
+            label2.Size = new Size(114, 20);
             label2.TabIndex = 3;
-            label2.Text = "Wybierz lekrza";
+            label2.Text = "Wybierz lekarza";
             // 
             // comboBox1
             // 
@@ -85,7 +85,7 @@
             button1.Name = "button1";
             button1.Size = new Size(107, 29);
             button1.TabIndex = 5;
-            button1.Text = "Usuń wyzytę";
+            button1.Text = "Usuń wizytę";
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
