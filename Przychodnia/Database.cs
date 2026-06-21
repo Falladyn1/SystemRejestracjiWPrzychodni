@@ -2,38 +2,44 @@
 using System.ComponentModel;
 using System.IO;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace Przychodnia
 {
     internal class Database
     {
         public static BindingList<Patient> patientList = new BindingList<Patient>();
-        private readonly static string filePath = "zapis.txt";
+        public static BindingList<Appointment> appointmentList = new BindingList<Appointment>();
 
-       // Func<CoWpada, CoZwraca>
+        private readonly static string patientsFilePath = "pacjenci.txt";
+        private readonly static string appointmentsFilePath = "wizyty.txt";
+
         public static BindingList<Patient> FilterPatients(Func<Patient, bool> checkCondition)
         {
             var filteredList = new BindingList<Patient>();
-
             foreach (Patient p in patientList)
             {
-                // Wywołujemy przekazaną logikę
                 if (checkCondition(p))
                 {
                     filteredList.Add(p);
                 }
             }
-
             return filteredList;
         }
 
         public static void Save()
         {
+            SaveList(patientList, patientsFilePath);
+            SaveList(appointmentList, appointmentsFilePath);
+        }
+
+        private static void SaveList<T>(IEnumerable<T> list, string filePath)
+        {
             using (StreamWriter writer = new StreamWriter(filePath, false))
             {
-                foreach (Patient p in patientList)
+                foreach (T item in list)
                 {
-                    Type t = p.GetType();
+                    Type t = item.GetType();
                     writer.WriteLine("[" + t.Name + "]");
 
                     PropertyInfo[] properties = t.GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -41,7 +47,7 @@ namespace Przychodnia
                     foreach (PropertyInfo prop in properties)
                     {
                         string key = prop.Name;
-                        object val = prop.GetValue(p);
+                        object val = prop.GetValue(item);
 
                         if (val != null)
                         {
@@ -63,14 +69,21 @@ namespace Przychodnia
         public static void Load()
         {
             patientList.Clear();
+            appointmentList.Clear();
 
+            LoadList(patientList, patientsFilePath);
+            LoadList(appointmentList, appointmentsFilePath);
+        }
+
+        private static void LoadList<T>(BindingList<T> targetList, string filePath) where T : new()
+        {
             if (!File.Exists(filePath))
                 return;
 
             using (StreamReader reader = new StreamReader(filePath))
             {
-                Patient currentObject = null;
-                Type currentType = typeof(Patient);
+                T currentObject = default(T);
+                Type currentType = typeof(T);
                 string line;
 
                 while ((line = reader.ReadLine()) != null)
@@ -81,15 +94,15 @@ namespace Przychodnia
                     {
                         if (currentObject != null)
                         {
-                            patientList.Add(currentObject);
-                            currentObject = null;
+                            targetList.Add(currentObject);
+                            currentObject = default(T);
                         }
                         continue;
                     }
 
                     if (line.StartsWith("[") && line.EndsWith("]"))
                     {
-                        currentObject = new Patient();
+                        currentObject = new T();
                     }
                     else if (currentObject != null && line.Contains(": "))
                     {
@@ -113,6 +126,10 @@ namespace Przychodnia
                                     {
                                         property.SetValue(currentObject, DateTime.Parse(propValue));
                                     }
+                                    else if (property.PropertyType == typeof(bool))
+                                    {
+                                        property.SetValue(currentObject, bool.Parse(propValue));
+                                    }
                                     else
                                     {
                                         property.SetValue(currentObject, Convert.ChangeType(propValue, property.PropertyType));
@@ -126,7 +143,7 @@ namespace Przychodnia
 
                 if (currentObject != null)
                 {
-                    patientList.Add(currentObject);
+                    targetList.Add(currentObject);
                 }
             }
         }

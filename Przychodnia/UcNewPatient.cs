@@ -61,14 +61,20 @@ namespace Przychodnia
             textBoxHouseNum.Text = p.HouseNumber;
             textBoxCity.Text = p.City;
 
-            if (p.DateVisit >= monthCalendar1.MinDate && p.DateVisit <= monthCalendar1.MaxDate)
-                monthCalendar1.SetDate(p.DateVisit);
+            // Szukamy najnowszej wizyty przypisanej do tego pacjenta
+            var patientAppointment = Database.appointmentList.LastOrDefault(a => a.PatientId == p.Id);
 
-            comboBoxHours.Text = p.HourVisit;
-            comboBoxDoctor.Text = p.Doctor;
+            if (patientAppointment != null)
+            {
+                if (patientAppointment.DateVisit >= monthCalendar1.MinDate && patientAppointment.DateVisit <= monthCalendar1.MaxDate)
+                    monthCalendar1.SetDate(patientAppointment.DateVisit);
+
+                comboBoxHours.Text = patientAppointment.HourVisit;
+                comboBoxDoctor.Text = patientAppointment.DoctorName;
+            }
 
             label1.Text = "Edycja Pacjenta";
-            btnConfirm.Text = "Zapisz Zmiany";
+            btnConfirm.Text = "Zapisz Zmiany / Dodaj nową wizytę";
         }
 
         // Zostawiam stare nazwę jako wrapper żeby UcPatientList.cs nie wymagało zmian
@@ -112,11 +118,11 @@ namespace Przychodnia
             string newHourVisit = comboBoxHours.Text;
             string newDoctor = comboBoxDoctor.Text;
 
-            bool isTerminZajety = Database.patientList.Any(p =>
-                p != currentPatient &&
-                p.Doctor == newDoctor &&
-                p.DateVisit.Date == newDateVisit.Date &&
-                p.HourVisit == newHourVisit);
+            // ZMIANA: Sprawdzamy zajętość terminów w nowej liście wizyt (appointmentList)
+            bool isTerminZajety = Database.appointmentList.Any(a =>
+                a.DoctorName == newDoctor &&
+                a.DateVisit.Date == newDateVisit.Date &&
+                a.HourVisit == newHourVisit);
 
             if (isTerminZajety)
             {
@@ -124,6 +130,7 @@ namespace Przychodnia
                 return;
             }
 
+            // 1. Zapis / Aktualizacja obiektu PACJENTA
             Patient p = currentPatient ?? new Patient();
 
             p.Name = textBoxName.Text;
@@ -136,19 +143,26 @@ namespace Przychodnia
             p.Street = textBoxStreet.Text;
             p.HouseNumber = textBoxHouseNum.Text;
             p.City = textBoxCity.Text;
-            p.DateVisit = newDateVisit;
-            p.HourVisit = newHourVisit;
-            p.Doctor = newDoctor;
 
             if (currentPatient == null)
                 Database.patientList.Add(p);
 
+            // 2. Utworzenie obiektu nowej WIZYTY i przypisanie mu Id pacjenta
+            Appointment appointment = new Appointment
+            {
+                PatientId = p.Id,
+                DateVisit = newDateVisit.Date,
+                HourVisit = newHourVisit,
+                DoctorName = newDoctor
+            };
+
+            Database.appointmentList.Add(appointment);
+
+            // 3. Zapis zmian
             Database.Save();
 
             MessageBox.Show("Zapisano pomyślnie!");
             btnCancel_Click(sender, e);
         }
-
-
     }
 }

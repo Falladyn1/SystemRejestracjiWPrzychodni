@@ -10,12 +10,11 @@ namespace Przychodnia
         {
             InitializeComponent();
             timer1.Start();
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            labelTime.Text = System.DateTime.Now.ToString();
+            labelTime.Text = System.DateTime.Now.ToString("HH:mm:ss\ndd.MM.yyyy");
             RefreshStats();
         }
 
@@ -24,49 +23,39 @@ namespace Przychodnia
             DateTime today = DateTime.Today;
             int numOfNextWeekVisits = 0;
 
-            for (int i = 0; i<7; i++)
+            for (int i = 0; i < 7; i++)
             {
                 DateTime nextWeek = today.AddDays(i);
 
-                var nextWeekVisits = Database.patientList
-                .Where(p => p.DateVisit.Date == nextWeek)
-                .ToList();
-
-                numOfNextWeekVisits += nextWeekVisits.Count;
+                // ZMIANA: Liczymy wizyty w danym dniu
+                numOfNextWeekVisits += Database.appointmentList.Count(a => a.DateVisit.Date == nextWeek);
             }
 
-            var todayVisits = Database.patientList
-                .Where(p => p.DateVisit.Date == today)
+            // Dzisiejsze wizyty
+            var todayAppointments = Database.appointmentList
+                .Where(a => a.DateVisit.Date == today)
+                .OrderBy(a => a.HourVisit)
                 .ToList();
 
-
-            labelNumOfPatients.Text = todayVisits.Count.ToString();
+            labelNumOfPatients.Text = todayAppointments.Count.ToString();
             labelNumOfNewPatients.Text = numOfNextWeekVisits.ToString();
 
+            // ZMIANA: Tworzymy anonimową listę obiektów, która łączy dane z wizyty i pacjenta na potrzeby DataGridView
+            var displayList = todayAppointments.Select(a => {
+                var p = Database.patientList.FirstOrDefault(pat => pat.Id == a.PatientId);
+                return new
+                {
+                    Imię = p != null ? p.Name : "Brak",
+                    Nazwisko = p != null ? p.Surname : "Brak",
+                    PESEL = p != null ? p.Pesel : "Brak",
+                    Godzina = a.HourVisit,
+                    Lekarz = a.DoctorName
+                };
+            }).ToList();
+
             dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.DataSource = new System.ComponentModel.BindingList<Patient>(todayVisits);
-
-            string[] hiddenColumns = { "PhoneNumber", "Email", "Street", "City", "HouseNumber", "Sex", "Date" };
-            foreach (string nazwa in hiddenColumns)
-            {
-                if (dataGridView1.Columns[nazwa] != null)
-                    dataGridView1.Columns[nazwa].Visible = false;
-            }
-
-            if (dataGridView1.Columns["Name"] != null) dataGridView1.Columns["Name"].HeaderText = "Imię";
-            if (dataGridView1.Columns["Surname"] != null) dataGridView1.Columns["Surname"].HeaderText = "Nazwisko";
-            if (dataGridView1.Columns["Pesel"] != null) dataGridView1.Columns["Pesel"].HeaderText = "PESEL";
-            if (dataGridView1.Columns["DateVisit"] != null)
-            {
-                dataGridView1.Columns["DateVisit"].HeaderText = "Data Wizyty";
-                dataGridView1.Columns["DateVisit"].DefaultCellStyle.Format = "g";
-            }
-            if (dataGridView1.Columns["HourVisit"] != null) dataGridView1.Columns["HourVisit"].HeaderText = "Godzina";
-            if (dataGridView1.Columns["Doctor"] != null) dataGridView1.Columns["Doctor"].HeaderText = "Lekarz";
-
+            dataGridView1.DataSource = displayList;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
-
-        
     }
 }
